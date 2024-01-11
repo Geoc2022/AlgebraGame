@@ -11,14 +11,14 @@ namespace MyAlgebra
 Introduction "
   After creating groups, it's probably a good idea to define a function between groups. There can be a lot of different functions between groups, but we only care about the ones that preserve the group structure. These functions are called homomorphisms.
 
-  So what makes up the group structure? Well, we have a set `α`, a binary operation `⬝`, and an identity element `e`. Therefore, we need to define a function that preserves these elements.
+  So what makes up the group structure? Well, we have a set `α`, a binary operation `*`, an identity element `1`, and inverses. Therefore, we need to define a function that preserves these aspects.
 
   It turns out that we only need the binary operation to be preserved. And in the next two levels we get the other two for free.
 
   We define a homomorphism as a function `f` that satisfies the following property:
-  `∀ a b : α, f (a ⬝ b) = f a ⬝ f b`
+  `∀ a b : α, f (a * b) = f a * f b`
 
-  And we call this property `is_hom`.
+  And we call this property `is_mul_hom`.
 "
 
 /--
