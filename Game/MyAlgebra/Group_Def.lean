@@ -29,14 +29,14 @@ class AbstactUnitalMagma (α : Type) extends One α, AbstactMagma α where
 
 class AbstactMonoid (α : Type) extends AbstactSemigroup α, AbstactUnitalMagma α
 
-class Inv (α : Type) where
+class AbstactInv (α : Type) where
   /-- The inversion function -/
   inv : α → α
-@[inherit_doc]
-postfix:max "⁻¹" => Inv.inv
+-- @[inherit_doc]
+-- postfix:max "⁻¹" => Inv.inv
 
-class AbstactGroup (G : Type) extends AbstactMonoid G, Inv G where
-  inv_mul : ∀ a : G, a⁻¹ ⬝ a = e
-  mul_inv : ∀ a : G, a ⬝ a⁻¹ = e
+class AbstactGroup (G : Type) extends AbstactMonoid G, AbstactInv G where
+  inv_mul : ∀ a : G, inv a ⬝ a = e
+  mul_inv : ∀ a : G, a ⬝ inv a = e
 class AbstactCommGroup (G : Type) extends AbstactGroup G where
   mul_comm : ∀ a b : G, a ⬝ b = b ⬝ a

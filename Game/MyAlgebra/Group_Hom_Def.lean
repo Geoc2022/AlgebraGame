@@ -15,4 +15,5 @@ attribute [coe] GroupHom.f
 
 export GroupHom (hom)
 
-def is_hom {G H : Type} [Group G] [Group H] (f : G → H)  := ∀ a b : G, f (a * b) = (f a) * (f b)
+@[to_additive]
+def is_mul_hom {G H : Type} [Group G] [Group H] (f : G → H)  := ∀ a b : G, f (a * b) = (f a) * (f b)
