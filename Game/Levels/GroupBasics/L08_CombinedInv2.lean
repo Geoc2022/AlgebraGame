@@ -6,7 +6,6 @@ Level 8
 Title "Inverse of n Products"
 
 namespace MyAlgebra
--- variable {α : Type} [Group α]
 
 Introduction "We've seen that the inverse of a product of two elements is the product of the inverses in reverse order. What about the inverse of a product of three elements? Or four? Or n?
 
@@ -23,8 +22,8 @@ For example, if `l = [g1, g2, g3]` then `prod_list l = g1 ⬝ g2 ⬝ g3` and `pr
 -/
 DefinitionDoc prod_list as "prod_list"
 def prod_list {G : Type} [Group G]: List G → G
-  | [] => e
-  | (g::l) => mul g (prod_list l)
+  | [] => 1
+  | (g::l) => g * (prod_list l)
 
 /--
   Given a list of elements of a group `G`, `prod_list_inv` computes the product of the elements in the list in reverse order, with each element inverted.
@@ -33,8 +32,8 @@ def prod_list {G : Type} [Group G]: List G → G
 -/
 DefinitionDoc prod_list_inv as "prod_list_inv"
 def prod_list_inv {G : Type} [Group G] : List G → G
-  | [] => e
-  | (a::l) => mul (prod_list_inv l) (inv a)
+  | [] => 1
+  | (a::l) => (prod_list_inv l) * (a⁻¹)
 
 /--
 `inv_n_prod` is a proof that the inverse of a product of `n` elements is the product of the inverses in reverse order.
@@ -56,13 +55,13 @@ Statement inv_n_prod (l : List G) [Group G] : is_inv (prod_list l) (prod_list_in
   apply And.intro
 
   rw [mul_assoc]
-  rw [← mul_assoc _ _ (inv fst)]
+  rw [← mul_assoc _ _ (fst⁻¹)]
   rw [tail_ih_l]
   rw [one_mul]
   rw [mul_inv]
 
   rw [mul_assoc]
-  rw [← mul_assoc (inv fst)]
+  rw [← mul_assoc (fst⁻¹)]
   rw [inv_mul]
   rw [one_mul]
   rw [tail_ih_r]

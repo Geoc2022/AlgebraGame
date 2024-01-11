@@ -6,7 +6,6 @@ Level 4
 Title "Composition of homomorphism is also a homomorphism"
 
 namespace MyAlgebra
--- variable {α : Type} [Group α]
 
 Introduction ""
 
@@ -14,7 +13,7 @@ Introduction ""
 `hom_comp_hom` is a proof that composition of homomorphisms is also a homomorphism.
 -/
 TheoremDoc MyAlgebra.hom_comp_hom as "hom_comp_hom" in "Group"
-Statement hom_comp_hom (f1 : G → H) (f2 : H → J) [Group G] [Group H] [Group J] (h1 : is_hom f1) (h2 : is_hom f2) : is_hom (f2 ∘ f1) := by
+Statement hom_comp_hom (f1 : G → H) (f2 : H → J) [Group G] [Group H] [Group J] (h1 : is_mul_hom f1) (h2 : is_mul_hom f2) : is_mul_hom (f2 ∘ f1) := by
   intro a b
   have q := h1 a b
   have r := h2 (f1 a) (f1 b)

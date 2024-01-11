@@ -16,7 +16,7 @@ class AddMonoid (α : Type) extends AddSemigroup α, AddZeroClass α where
 
 @[to_additive]
 class Monoid (α : Type) extends Semigroup α, MulOneClass α
-
+attribute [to_additive existing] Monoid.toMulOneClass
 
 class AddGroup (G : Type) extends AddMonoid G, Neg G where
   neg_add : ∀ a : G, -a + a = 0
@@ -41,5 +41,12 @@ export AddGroup (neg_add add_neg)
 export Group (inv_mul mul_inv)
 export AddCommGroup (add_comm)
 export CommGroup (mul_comm)
+
+
+@[to_additive]
+def is_one (g : G) [Group G] := ∀ a : G, g * a = a ∧ a * g = a
+
+@[to_additive]
+def is_inv (a b : G) [Group G] := a * b = 1 ∧ b * a = 1
 
 end MyAlgebra

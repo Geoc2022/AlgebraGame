@@ -1,5 +1,5 @@
 import Game.Metadata
-import Game.MyAlgebra.Definition
+import Game.MyAlgebra.AddMul_Group_Def
 
 World "GroupBasics"
 Level 1
@@ -7,16 +7,16 @@ Level 1
 Title "Left Multiplication"
 
 namespace MyAlgebra
--- variable {α : Type} [Group α]
 
 Introduction "Just to get us warmed up, let's create some lemmas to make it easy to multiply."
 
 /--
-`mul_left` is a proof that if `g1 = g2`, then `h ⬝ g1 = h ⬝ g2` - basically `h ⬝ _` if a function.
+`mul_left` is a proof that if `g1 = g2`, then `h * g1 = h * g2` - basically `h * _` if a function.
 -/
 TheoremDoc MyAlgebra.mul_left as "mul_left" in "Group"
 
-Statement mul_left (g : G) [Group G] : g1 = g2 → g ⬝ g1 = g ⬝ g2 := by
+@[to_additive]
+Statement mul_left (g : G) [Group G] : g1 = g2 → g * g1 = g * g2 := by
   intro h
   rw [h]
 
