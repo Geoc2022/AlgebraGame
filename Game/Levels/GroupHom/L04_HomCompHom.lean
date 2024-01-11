@@ -7,7 +7,9 @@ Title "Composition of homomorphism is also a homomorphism"
 
 namespace MyAlgebra
 
-Introduction ""
+Introduction "
+  We have seen that the identity function is a homomorphism. Now we will see that the composition of two homomorphisms is also a homomorphism.
+"
 
 /--
 `hom_comp_hom` is a proof that composition of homomorphisms is also a homomorphism.

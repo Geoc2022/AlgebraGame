@@ -7,7 +7,9 @@ Title "Homomorphisms preserve inverses"
 
 namespace MyAlgebra
 
-Introduction ""
+Introduction "
+  Here we'll see that the group homomorphism definition preserves inverses.
+"
 
 /--
 `hom_preserves_inv` is a proof that a homomorphism preserves inverses.
