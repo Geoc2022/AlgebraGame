@@ -27,13 +27,12 @@ theorem neg_mul {R : Type} [Ring R] (a b : R) : (-a) * (-b) = a * b := by
     rw [neg_add]
     rw [zero_mul]
   have h2 : -(a * b) = a * (-b) := by
-    apply add_right_cancel (a * b)
-    rw [neg_add]
-    rw [add_comm]
+    apply add_left_cancel (a * b)
+    rw [add_neg]
     rw [← distrib_left]
     rw [add_neg]
     rw [mul_zero]
-  have h3 : (a + -a) * (b + -b) = a * b + ((-a) * b) + (a * (-b)) + ((-a) * (-b)) := by
+  have h3 : (a + -a) * (b + -b) = a * b + (-a) * b + a * (-b) + (-a) * (-b) := by
     rw [distrib_left]
     rw [distrib_right]
     rw [distrib_right]
