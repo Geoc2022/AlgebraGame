@@ -13,37 +13,19 @@ World "GroupBasics"
 Title "Group World"
 
 Introduction "
-  This world works with basic group theorems that will be useful later.
+  A group consists of a set G together with a binary operation (`*`) satisfying the following axioms:
 
-  By the way, the way we define group is using Classes:
+  (a) (Identity Axiom) There is an element `1 ∈ G` such that
+  - mul_one : ∀ g : G, 1 * g = g
+  - one_mul : ∀ g : G, g * 1 = g
+  The element 1 is called the identity element of G.
 
-  We first create:
-  Class (One) with an identity
-    - one
-  Class (Magma) with a binary operation
-    - mul
-  Class (Inv) with an inverse operation
-    - inv
+  (b) (Inverse Axiom) For every `g ∈ G` there is an element `h ∈ G` such that
+  - mul_inv : ∀ g : G, g * g⁻¹ = 1
+  - inv_mul : ∀ g : G, g⁻¹ * g = 1
+  The element `h` is denoted `g⁻¹` (written \"g\\inv\") and is called the inverse of g.
 
-  Then we define:
-  Class (Semigroup) extending the Magma with an associative binary operation
-    - mul_assoc
-  Class (Unital Magma) extending One, Magma with an identity (one)
-    - mul_one
-    - one_mul
-  Class (Monoid) extending Unital Magma, Semigroup
-    - mul_assoc
-    - mul_one
-    - one_mul
+  (c) (Associative Law) For all `g1, g2, g3 ∈ G`, the associative law holds:
+  - mul_assoc : ∀ g1 g2 g3 : G, (g1 * g2) * g3 = g1 * (g2 * g3)
 
-  Finally we define:
-  Class (Group) extending Monoid, Inv
-    - mul_assoc
-    - mul_one
-    - one_mul
-    - mul_inv
-    - inv_mul
-    - mul_inv
-
-  You can now use everything in these classes for your proofs.
 "
