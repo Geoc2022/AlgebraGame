@@ -38,6 +38,10 @@ class Group (G : Type) extends Monoid G, Inv G where
   inv_mul : ∀ a : G, a⁻¹ ⬝ a = e
   mul_inv : ∀ a : G, a ⬝ a⁻¹ = e
 
+class CommGroup (G : Type) extends Group G where
+  mul_comm : ∀ a b : G, a ⬝ b = b ⬝ a
+
+
 export One (one)
 export Magma (mul)
 export Semigroup (mul_assoc)
