@@ -1,4 +1,5 @@
-import Game.Levels.GroupBasics.L01_MulLeft
+import Game.Levels.RingBasics.L01_MulZero
+import Game.Levels.RingBasics.L02_NegMul
 
 
 World "RingBasics"
