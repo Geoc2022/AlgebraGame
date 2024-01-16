@@ -19,15 +19,10 @@ This definition is a predicate on `g : α` that says that `g` is an identity ele
 -/
 TheoremDoc MyAlgebra.one_unique as "one_unique" in "Group"
 @[to_additive]
-Statement one_unique (a e1 e2 : G) [Group G] (h1 : is_one e1) (h2 : is_one e2) : e1 = e2 := by
-  cases' h1 a with h1l h1r
-  cases' h2 a with h2l h2r
-  have h := h1r
-  rw [←h2r] at h
-  rw [mul_assoc] at h
-  have q := And.left (h2 e1)
-  rw [q] at h
-  apply mul_left_cancel a
-  exact h
+Statement one_unique (e1 e2 : G) [Group G] (h1 : is_one e1) (h2 : is_one e2) : e1 = e2 := by
+  cases' h1 e2 with h1l h1r
+  cases' h2 e1 with h2l h2r
+  rw [h2r] at h1l
+  exact h1l
 
 Conclusion "Congrats!"

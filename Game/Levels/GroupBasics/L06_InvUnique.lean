@@ -23,9 +23,8 @@ TheoremDoc MyAlgebra.inv_unique as "inv_unique" in "Group"
 Statement inv_unique (a b c : G) [Group G] (h1 : is_inv a b) (h2 : is_inv a c) : b = c := by
   cases' h1 with h1l h1r
   cases' h2 with h2l h2r
-  have h := h1r
-  rw [←h2r] at h
+  rw [←h2r] at h1r
   apply mul_right_cancel a
-  exact h
+  exact h1r
 
 Conclusion "Congrats!"
