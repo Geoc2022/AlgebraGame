@@ -1,4 +1,4 @@
-import Game.Levels.GroupBasics.L09_InvInv
+import Game.Levels.Group
 import Game.MyAlgebra.Group_Hom_Def
 
 World "GroupHom"
@@ -9,11 +9,7 @@ Title "Homomorphisms preserve the identity"
 namespace MyAlgebra
 
 Introduction "
-  After creating groups, it's probably a good idea to define a function between groups. There can be a lot of different functions between groups, but we only care about the ones that preserve the group structure. These functions are called homomorphisms.
-
-  So what makes up the group structure? Well, we have a set `α`, a binary operation `*`, an identity element `1`, and inverses. Therefore, we need to define a function that preserves these aspects.
-
-  It turns out that we only need the binary operation to be preserved. And in the next two levels we get the other two for free.
+  Here we'll prove that a homomorphism preserves the identity element.
 
   We define a homomorphism as a function `f` that satisfies the following property:
   `∀ a b : α, f (a * b) = f a * f b`
@@ -22,10 +18,18 @@ Introduction "
 "
 
 /--
+`is_mul_hom` is a proof that a function preserves multiplication.
+-/
+TheoremDoc MyAlgebra.is_mul_hom as "is_mul_hom" in "Group"
+-- @[to_additive]
+def is_mul_hom {G H : Type} [Group G] [Group H] (f : G → H)  := ∀ a b : G, f (a * b) = (f a) * (f b)
+NewDefinition is_mul_hom
+
+/--
 `hom_preserves_one` is a proof that a homomorphism preserves the identity element.
 -/
 TheoremDoc MyAlgebra.hom_preserves_one as "hom_preserves_one" in "Group"
-@[to_additive]
+-- @[to_additive]
 Statement hom_preserves_one [Group G] [Group H] (f : G → H) (h : is_mul_hom f) : f 1 = 1 := by
   have q := h 1 1
   rw [one_mul] at q

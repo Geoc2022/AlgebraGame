@@ -1,6 +1,6 @@
-import Game.Levels.GroupBasics
+import Game.Levels.Group
 import Game.Levels.GroupHom
-import Game.Levels.RingBasics
+import Game.Levels.Ring
 
 
 -- Here's what we'll put on the title screen
@@ -8,6 +8,11 @@ Title "Algebra Game"
 Introduction
 "
 # Welcome to the Algebra Game
+#### An introduction to algebraic structures.
+
+In this game, we will build the basic theory of Groups, Rings, and Fields from scratch. We'll do this by solving levels of a computer puzzle game called Lean.
+
+It's recommend that you play the [Natural Number Game](https://adam.math.hhu.de/#/g/leanprover-community/NNG4) to learn the basics of Lean before playing this game.
 "
 
 Info "

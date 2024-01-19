@@ -1,6 +1,6 @@
-import Game.Levels.GroupBasics.L07_CombinedInv
+import Game.Levels.Group.L07_CombinedInv
 
-World "GroupBasics"
+World "Group"
 Level 8
 
 Title "Inverse of n Products"
@@ -20,7 +20,7 @@ For example, if `l = [g1, g2, g3]` then `prod_list l = g1 ⬝ g2 ⬝ g3` and `pr
 
   If the list is empty, it returns the empty product - the identity element `e` of the group.
 -/
-DefinitionDoc prod_list as "prod_list"
+DefinitionDoc MyAlgebra.prod_list as "prod_list"
 def prod_list {G : Type} [Group G]: List G → G
   | [] => 1
   | (g::l) => g * (prod_list l)
@@ -30,10 +30,11 @@ def prod_list {G : Type} [Group G]: List G → G
 
   If the list is empty, it returns the empty product - the identity element `e` of the group.
 -/
-DefinitionDoc prod_list_inv as "prod_list_inv"
+DefinitionDoc MyAlgebra.prod_list_inv as "prod_list_inv"
 def prod_list_inv {G : Type} [Group G] : List G → G
   | [] => 1
   | (a::l) => (prod_list_inv l) * (a⁻¹)
+NewDefinition MyAlgebra.prod_list MyAlgebra.prod_list_inv
 
 /--
 `inv_n_prod` is a proof that the inverse of a product of `n` elements is the product of the inverses in reverse order.
@@ -69,4 +70,9 @@ Statement inv_n_prod (l : List G) [Group G] : is_inv (prod_list l) (prod_list_in
 
 Conclusion "Congrats!"
 
-NewDefinition prod_list prod_list_inv
+/--
+`induction l with fst rst` is a tactic that performs induction on the list `l`, with the first element of the list being called `fst` and the rest of the list being called `rst`.
+-/
+TacticDoc induction'
+
+NewTactic induction'

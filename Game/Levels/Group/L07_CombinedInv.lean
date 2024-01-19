@@ -1,6 +1,6 @@
-import Game.Levels.GroupBasics.L06_InvUnique
+import Game.Levels.Group.L06_InvUnique
 
-World "GroupBasics"
+World "Group"
 Level 7
 
 Title "Inverse of a Product"
@@ -13,7 +13,7 @@ Introduction "Our group has inverses of elements by definition but what about th
 `inv_prod` is a proof that there exists a inverse of `g * h` in a group.
 -/
 TheoremDoc MyAlgebra.inv_prod as "inv_prod" in "Group"
-@[to_additive]
+-- @[to_additive]
 Statement inv_prod (g h : G) [Group G] : is_inv (h⁻¹ * g⁻¹) (g * h) := by
   apply And.intro
 

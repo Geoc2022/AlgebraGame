@@ -1,6 +1,6 @@
 import Game.Levels.GroupHom.L02_HomPreservesInv
 
-World "BasicGroup"
+World "GroupHom"
 Level 3
 
 Title "The Identity Function is a Homomorphism"
