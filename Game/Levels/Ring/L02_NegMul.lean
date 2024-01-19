@@ -1,6 +1,6 @@
-import Game.Levels.RingBasics.L01_MulZero
+import Game.Levels.Ring.L01_MulZero
 
-World "BasicRing"
+World "Ring"
 Level 2
 
 Title "Multiplication of Negatives"

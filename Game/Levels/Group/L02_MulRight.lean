@@ -1,6 +1,6 @@
-import Game.Levels.GroupBasics.L01_MulLeft
+import Game.Levels.Group.L01_MulLeft
 
-World "GroupBasics"
+World "Group"
 Level 2
 
 Title "Right Multiplication"
@@ -10,7 +10,7 @@ namespace MyAlgebra
 Introduction "Here's a duel of that last level."
 
 /--
-`mul_right` is a proof that if `g1 = g2`, then `g1 * h = g2 * h` - basically `_ * h` if a function.
+`mul_right` is a proof that if `g1 = g2`, then `g1 * h = g2 * h` - basically `_ * h` is a function.
 -/
 TheoremDoc MyAlgebra.mul_right as "mul_left" in "Group"
 @[to_additive]

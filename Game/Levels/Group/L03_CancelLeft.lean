@@ -1,6 +1,6 @@
-import Game.Levels.GroupBasics.L02_MulRight
+import Game.Levels.Group.L02_MulRight
 
-World "GroupBasics"
+World "Group"
 Level 3
 
 Title "Cancel Left Multiplication"
@@ -18,7 +18,6 @@ Statement mul_left_cancel (g : G) [Group G] : g * g1 = g * g2 → g1 = g2 := by
   intro h
   have q := mul_left (g⁻¹) h
   rw [←mul_assoc] at q
-  rw [inv_mul] at q
   rw [←mul_assoc] at q
   rw [inv_mul] at q
   rw [one_mul] at q

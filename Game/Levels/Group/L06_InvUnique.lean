@@ -1,6 +1,6 @@
-import Game.Levels.GroupBasics.L05_OneUnique
+import Game.Levels.Group.L05_OneUnique
 
-World "GroupBasics"
+World "Group"
 Level 6
 
 Title "Unique Inverse"
@@ -16,10 +16,19 @@ This definition is a predicate on `a b : α` that says that `b` is an inverse of
 "
 
 /--
+  `is_inv g h` says that `g` is an inverse element of `h` (multiplying `g` by `h` returns the identity element)
+-/
+DefinitionDoc is_inv as "is_inv"
+-- @[to_additive]
+def is_inv (a b : G) [Group G] := a * b = 1 ∧ b * a = 1
+NewDefinition is_inv
+
+
+/--
 `inv_unique` is a proof that there is only one inverse element in a group for any given element.
 -/
 TheoremDoc MyAlgebra.inv_unique as "inv_unique" in "Group"
-@[to_additive]
+-- @[to_additive]
 Statement inv_unique (a b c : G) [Group G] (h1 : is_inv a b) (h2 : is_inv a c) : b = c := by
   cases' h1 with h1l h1r
   cases' h2 with h2l h2r

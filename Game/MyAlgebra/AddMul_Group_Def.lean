@@ -42,11 +42,4 @@ export Group (inv_mul mul_inv)
 export AddCommGroup (add_comm)
 export CommGroup (mul_comm)
 
-
-@[to_additive]
-def is_one (g : G) [Group G] := ∀ a : G, g * a = a ∧ a * g = a
-
-@[to_additive]
-def is_inv (a b : G) [Group G] := a * b = 1 ∧ b * a = 1
-
 end MyAlgebra

@@ -1,6 +1,6 @@
 import Game.Levels.GroupHom.L03_IdHom
 
-World "BasicGroup"
+World "GroupHom"
 Level 4
 
 Title "Composition of homomorphism is also a homomorphism"

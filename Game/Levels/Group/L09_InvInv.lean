@@ -1,6 +1,6 @@
-import Game.Levels.GroupBasics.L08_CombinedInv2
+import Game.Levels.Group.L08_CombinedInv2
 
-World "GroupBasics"
+World "Group"
 Level 9
 
 Title "Inverse of an Inverse"
@@ -16,8 +16,7 @@ Introduction "
 -/
 TheoremDoc MyAlgebra.inv_inv as "inv_inv" in "Group"
 @[to_additive]
-Statement inv_inv (a : G) [Group G] : a⁻¹⁻¹ = a := by
-  apply Eq.symm
+Statement inv_inv (a : G) [Group G] : a = a⁻¹⁻¹ := by
   calc a = a := by rfl
     _ = a⁻¹⁻¹ * a⁻¹ * a := by
       rw [inv_mul]

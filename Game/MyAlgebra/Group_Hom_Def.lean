@@ -14,6 +14,3 @@ instance [Group G] [Group H] : CoeFun (GroupHom G H) (fun _ ↦ G → H) where
 attribute [coe] GroupHom.f
 
 export GroupHom (hom)
-
-@[to_additive]
-def is_mul_hom {G H : Type} [Group G] [Group H] (f : G → H)  := ∀ a b : G, f (a * b) = (f a) * (f b)
