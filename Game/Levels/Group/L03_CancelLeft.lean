@@ -16,7 +16,9 @@ TheoremDoc MyAlgebra.mul_left_cancel as "mul_left_cancel" in "Group"
 @[to_additive]
 Statement mul_left_cancel (g : G) [Group G] : g * g1 = g * g2 → g1 = g2 := by
   intro h
-  have q := mul_left (g⁻¹) h
+  Hint "What can we do to get rid of the `g` on both sides? It might help to use a previous lemma."
+  have q := mul_left g⁻¹ h
+  Hint "The `g⁻¹` is bordered by `(` if it were `g` we could cancel"
   rw [←mul_assoc] at q
   rw [←mul_assoc] at q
   rw [inv_mul] at q

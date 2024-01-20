@@ -16,7 +16,9 @@ Introduction "Just to get us warmed up, let's create some lemmas to make it easy
 TheoremDoc MyAlgebra.mul_left as "mul_left" in "Group"
 @[to_additive]
 Statement mul_left (g : G) [Group G] : g1 = g2 → g * g1 = g * g2 := by
+  Hint "Start by introducing the hypothesis with `intro`."
   intro h
+  Hint "Now, use `rw` to rewrite the goal using the hypothesis `{h}`."
   rw [h]
 
 

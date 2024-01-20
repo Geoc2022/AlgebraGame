@@ -12,11 +12,13 @@ Introduction "We know from group axioms that there exists an identity element, b
 We will need the following definition:
 `def is_one (g : G) [Group G] := ∀ a : G, g * a = a ∧ a * g = a`
 
-This definition is a predicate on `g : α` that says that `g` is an identity element (anything element multiplied by it returns the original element). Remember that we can split up the and (∧) using cases' or by using `And.left` and `And.right`."
+This definition says that `g` is an identity element (anything element multiplied by it returns the original element). Remember that we can split up the and (∧) using cases' or by using `And.left` and `And.right`."
 
 
 /--
   `is_one g` says that `g` is an identity element (anything element multiplied by it returns the original element)
+
+  If `h : is_one g` then `h a` is a proof that `g * a = a ∧ a * g = a`
 -/
 DefinitionDoc is_one as "is_one"
 -- @[to_additive]
@@ -29,6 +31,8 @@ NewDefinition is_one
 TheoremDoc MyAlgebra.one_unique as "one_unique" in "Group"
 -- @[to_additive]
 Statement one_unique (e1 e2 : G) [Group G] (h1 : is_one e1) (h2 : is_one e2) : e1 = e2 := by
+  Hint "We can evaluate `h1` and `h2` on an element `a ∈ G` using `h1 a` and `h2 a` respectively."
+  Hint "We can split up the `∧` using `cases' h1 a` or `And.left (h1 a)` and `And.right (h1 a)`"
   cases' h1 e2 with h1l h1r
   cases' h2 e1 with h2l h2r
   rw [h2r] at h1l

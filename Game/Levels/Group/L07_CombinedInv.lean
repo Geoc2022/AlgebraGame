@@ -15,6 +15,7 @@ Introduction "Our group has inverses of elements by definition but what about th
 TheoremDoc MyAlgebra.inv_prod as "inv_prod" in "Group"
 -- @[to_additive]
 Statement inv_prod (g h : G) [Group G] : is_inv (h⁻¹ * g⁻¹) (g * h) := by
+  Hint "You can use `And.intro` to break down the goal into two goals."
   apply And.intro
 
   rw [← mul_assoc]

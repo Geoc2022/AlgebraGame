@@ -41,8 +41,10 @@ NewDefinition MyAlgebra.prod_list MyAlgebra.prod_list_inv
 -/
 TheoremDoc MyAlgebra.inv_n_prod as "inv_n_prod" in "Group"
 Statement inv_n_prod (l : List G) [Group G] : is_inv (prod_list l) (prod_list_inv l) := by
+  Hint "Since we're working with a generalized number of elements, it might be helpful to use induction. It also helps that the functions `prod_list` and `prod_list_inv` are defined recursively."
   induction' l with fst rst
 
+  Hint "We can use the base cases in the definition of `prod_list` and `prod_list_inv` by using `rw [prod_list]` and `rw [prod_list_inv]`"
   rw [prod_list]
   rw [prod_list_inv]
   apply And.intro
