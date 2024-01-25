@@ -9,5 +9,7 @@ class Submonoid (S : Type) (M : Type) [Monoid M] [SetLike S M] : Prop where
 class Subgroup (S : Type) (G : Type) [Group G] [SetLike S G] extends Submonoid S G : Prop where
   inv_mem : ∀ (s : S) {a : G}, a ∈ s → a⁻¹ ∈ s
 
+class Kernel
+
 structure Normal (S : Type) (G : Type) [Group G] [SetLike S G] extends Subgroup S G : Prop where
   normal : ∀ (s : S) {a : G}, a ∈ s → ∀ (g : G), g * a * g⁻¹ ∈ s
