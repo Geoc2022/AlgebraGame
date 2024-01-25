@@ -15,8 +15,13 @@ Introduction "
 `hom_id` is a proof that the identity function from a group to itself is a homomorphism.
 -/
 TheoremDoc MyAlgebra.hom_id as "hom_id" in "Group"
-Statement hom_id [Group G] : is_mul_hom (id : G → G) := by
+Statement hom_id {G : Type} [Group G] : ∀ a b : G, id (a * b) = id (a) * id (b)  := by
   intro a b
-  rfl
+  Hint "`rfl` automatically solves this case, but you can also use `rw [id]`"
+  Branch
+    rfl
+  rw [id]
+  rw [id]
+  rw [id]
 
 Conclusion "Congrats!"

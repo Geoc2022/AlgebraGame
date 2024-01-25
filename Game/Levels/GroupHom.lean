@@ -1,7 +1,8 @@
 import Game.Levels.GroupHom.L01_HomPreservesOne
 import Game.Levels.GroupHom.L02_HomPreservesInv
 import Game.Levels.GroupHom.L03_IdHom
-import Game.Levels.GroupHom.L04_HomCompHom
+import Game.Levels.GroupHom.L04_OneHom
+import Game.Levels.GroupHom.L05_HomCompHom
 
 World "GroupHom"
 Title "Group Homomorphisms"
