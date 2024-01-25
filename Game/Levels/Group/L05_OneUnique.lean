@@ -35,6 +35,7 @@ Statement one_unique (e1 e2 : G) [Group G] (h1 : is_one e1) (h2 : is_one e2) : e
   Hint "We can split up the `∧` using `cases' h1 a` or `And.left (h1 a)` and `And.right (h1 a)`"
   cases' h1 e2 with h1l h1r
   cases' h2 e1 with h2l h2r
+  Hint "We are left with a lot of equalities with some that share the same left/right hand side."
   rw [h2r] at h1l
   exact h1l
 
