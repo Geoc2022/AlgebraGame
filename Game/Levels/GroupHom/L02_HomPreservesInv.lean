@@ -17,6 +17,7 @@ Introduction "
 TheoremDoc MyAlgebra.hom_preserves_inv as "hom_preserves_inv" in "Group"
 -- @[to_additive]
 Statement hom_preserves_inv [Group G] [Group H] (f : GroupHom G H) : (f a)⁻¹ = f (a⁻¹) := by
+  Hint "We can use a similar strategy to the last level"
   have q := f.hom a (a⁻¹)
   rw [mul_inv] at q
   rw [hom_preserves_one f] at q
