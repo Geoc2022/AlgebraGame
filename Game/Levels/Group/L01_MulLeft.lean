@@ -8,7 +8,7 @@ Title "Left Multiplication"
 
 namespace MyAlgebra
 
-Introduction "Just to get us warmed up, let's create some lemmas to make it easy to multiply."
+Introduction "Just to get us warmed up, let's create some lemmas for multiplication."
 
 /--
 `mul_left` is a proof that if `g1 = g2`, then `h * g1 = h * g2` - basically `h * _` is a function.

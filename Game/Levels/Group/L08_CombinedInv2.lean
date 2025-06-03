@@ -39,8 +39,9 @@ NewDefinition MyAlgebra.prod_list MyAlgebra.prod_list_inv
 /--
 `inv_n_prod` is a proof that the inverse of a product of `n` elements is the product of the inverses in reverse order.
 -/
-TheoremDoc MyAlgebra.inv_n_prod as "inv_n_prod" in "Group"
-Statement inv_n_prod (l : List G) [Group G] : is_inv (prod_list l) (prod_list_inv l) := by
+-- TheoremDoc MyAlgebra.inv_n_prod as "inv_n_prod" in "Group"
+-- Statement inv_n_prod (l : List G) [Group G] : is_inv (prod_list l) (prod_list_inv l) := by
+Statement (l : List G) [Group G] : is_inv (prod_list l) (prod_list_inv l) := by
   Hint "Since we're working with a generalized number of elements, it might be helpful to use induction. It also helps that the functions `prod_list` and `prod_list_inv` are defined recursively."
   induction' l with fst rst
 
@@ -73,7 +74,7 @@ Statement inv_n_prod (l : List G) [Group G] : is_inv (prod_list l) (prod_list_in
 Conclusion "Congrats!"
 
 /--
-`induction l with fst rst` is a tactic that performs induction on the list `l`, with the first element of the list being called `fst` and the rest of the list being called `rst`.
+`induction' l with fst rst` is a tactic that performs induction on the list `l`, with the first element of the list being called `fst` and the rest of the list being called `rst`.
 -/
 TacticDoc induction'
 

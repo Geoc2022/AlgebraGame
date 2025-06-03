@@ -8,7 +8,7 @@ World "GroupHom"
 Title "Group Homomorphisms"
 
 Introduction "
-  After creating groups, it's probably a good idea to define a function between groups. There can be a lot of different functions between groups, but we only care about the ones that preserve the group structure. These functions are called homomorphisms.
+  After creating groups, it's a good idea to define a function between them. There can be a lot of different functions between groups, but we only care about the ones that preserve the group structure (becasue they are the only interesting ones). These functions are called homomorphisms.
 
   So what makes up the group structure? Well, we have a set `α`, a binary operation `*`, an identity element `1`, and inverses. Therefore, we need to define a function that preserves these aspects.
 

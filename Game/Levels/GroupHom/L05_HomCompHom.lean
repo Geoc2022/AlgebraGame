@@ -44,4 +44,4 @@ TacticDoc use
 
 NewTactic use
 
--- Conclusion "Congrats!"
+Conclusion "Congrats!"

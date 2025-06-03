@@ -8,7 +8,7 @@ Title "Inverse of an Inverse"
 namespace MyAlgebra
 
 Introduction "
-  You would expect the inverse of an inverse to be the original element. Ex. `-(-2) = 2` or the composition of two flips is the identity. But let's formally prove it.
+  You should expect the inverse of an inverse to be the original element. Ex. `-(-2) = 2` or the composition of two flips is the identity. But let's formally prove it.
 "
 
 /--
