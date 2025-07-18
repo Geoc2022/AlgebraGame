@@ -54,6 +54,12 @@ TacticDoc «have»
 
 
 /--
+`obtain ⟨x, y, z⟩ := h` will destructure `h` into the variables `x`, `y`, and `z`. This is useful for when you have a hypothesis that is a tuple or a structure. You can type `⟨` using `\langle` and `⟩` using `\rangle`.
+-/
+TacticDoc obtain
+
+
+/--
 `calc` is a way to chain equalities together. It's a bit like `rw`, but you can see the whole chain of reasoning.
 -/
 TacticDoc «calc»
@@ -81,7 +87,7 @@ If `h : X = Y` and there are several `X`s in the goal, then `nth_rewrite 3 [h]` 
 -/
 TacticDoc nth_rewrite
 
-NewTactic rfl rw intro apply «have» «calc» exact simp «repeat» nth_rewrite
+NewTactic rfl rw intro apply «have» obtain «calc» exact simp «repeat» nth_rewrite
 end Basic_Tactics
 
 section Group_Axioms
@@ -95,11 +101,7 @@ TheoremDoc mul_one as "mul_one" in "Group"
 TheoremDoc one_mul as "one_mul" in "Group"
 
 /--
-`mul_inv` is a proof that for all `g : G`, `g * g⁻¹ = 1` (Left Inverse Axiom).
--/
-TheoremDoc MyAlgebra.Group.mul_inv as "mul_inv" in "Group"
-/--
-`inv_mul` is a proof that for all `g : G`, `g⁻¹ * g = 1` (Right Inverse Axiom).
+`inv_mul` is a proof that for all `g : G`, `g⁻¹ * g = 1` (Left Inverse Axiom).
 -/
 TheoremDoc MyAlgebra.Group.inv_mul as "inv_mul" in "Group"
 
@@ -109,4 +111,4 @@ TheoremDoc MyAlgebra.Group.inv_mul as "inv_mul" in "Group"
 TheoremDoc MyAlgebra.Semigroup.mul_assoc as "mul_assoc" in "Group"
 end Group_Axioms
 
-NewTheorem mul_one one_mul MyAlgebra.Group.mul_inv MyAlgebra.Group.inv_mul MyAlgebra.Semigroup.mul_assoc
+NewTheorem mul_one one_mul MyAlgebra.Group.inv_mul MyAlgebra.Semigroup.mul_assoc

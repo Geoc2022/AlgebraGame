@@ -10,7 +10,7 @@ namespace MyAlgebra
 Introduction "We will now prove that we the inverse is a also a right multiplicative inverse. This is a bit more challenging than the previous two levels, but it will be helpful to know this later on. This is one half of the \"Cancellation Rule for Groups\""
 
 /--
-`mul_inv` is a proof that if `g` is an element of a group, then `g * g⁻¹ = 1`
+`mul_inv` is a proof that for all `g : G`, `g * g⁻¹ = 1` (Right Inverse Axiom).
 -/
 TheoremDoc MyAlgebra.mul_inv' as "mul_inv" in "Group"
 Statement mul_inv' (g : G) [Group G] : g * g⁻¹ = 1 := by
@@ -23,3 +23,10 @@ Statement mul_inv' (g : G) [Group G] : g * g⁻¹ = 1 := by
   rw [one_mul]
 
 Conclusion "Congrats!"
+
+/--
+`mul_inv` is a proof that for all `g : G`, `g * g⁻¹ = 1` (Right Inverse Axiom).
+-/
+TheoremDoc MyAlgebra.Group.mul_inv as "mul_inv" in "Group"
+
+NewTheorem MyAlgebra.Group.mul_inv
