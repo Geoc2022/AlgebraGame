@@ -1,15 +1,15 @@
-import Game.Levels.Group.L07_CombinedInv
+import Game.Levels.Group.L08_CombinedInv
 
 World "Group"
-Level 8
+Level 9
 
 Title "Inverse of n Products"
 
 namespace MyAlgebra
 
-Introduction "We've seen that the inverse of a product of two elements is the product of the inverses in reverse order. What about the inverse of a product of three elements? Or four? Or n?
+Introduction "We've seen that the inverse of a product of two elements is the product of the inverses in reverse order because of the anti-commutativity of the inverse operation. What about the inverse of a product of three elements? Or four? Or n?
 
-Should it follow the same pattern?
+We should expect it to follow the same pattern, and we can use induction to prove this. The inverse of a product of `n` elements is the product of the inverses in reverse order.
 
 To make this a bit more formal, we defined a function `prod_list` that takes a list of elements of a group `G` and returns their product. We also define a function `prod_list_inv` that takes a list of elements of a group `G` and returns the product of the inverses of the elements in reverse order.
 
@@ -41,8 +41,9 @@ NewDefinition MyAlgebra.prod_list MyAlgebra.prod_list_inv
 -/
 -- TheoremDoc MyAlgebra.inv_n_prod as "inv_n_prod" in "Group"
 -- Statement inv_n_prod (l : List G) [Group G] : is_inv (prod_list l) (prod_list_inv l) := by
-Statement (l : List G) [Group G] : is_inv (prod_list l) (prod_list_inv l) := by
+Statement (l : List G) [Group G] : (prod_list_inv l) = (prod_list l)⁻¹ := by
   Hint "Since we're working with a generalized number of elements, it might be helpful to use induction. It also helps that the functions `prod_list` and `prod_list_inv` are defined recursively."
+  apply inv_unique (prod_list l) (prod_list_inv l)
   induction' l with fst rst
 
   Hint "We can use the base cases in the definition of `prod_list` and `prod_list_inv` by using `rw [prod_list]` and `rw [prod_list_inv]`"
@@ -78,4 +79,14 @@ Conclusion "Congrats!"
 -/
 TacticDoc induction'
 
-NewTactic induction'
+/--
+```
+induction l with
+| nil => ...
+| cons fst rst => ...
+```
+is a tactic that performs induction on the list `l`, with the first element of the list being called `fst` and the rest of the list being called `rst`.
+-/
+TacticDoc induction
+
+NewTactic induction' induction

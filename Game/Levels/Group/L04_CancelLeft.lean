@@ -1,7 +1,7 @@
-import Game.Levels.Group.L02_MulRight
+import Game.Levels.Group.L03_MulInv
 
 World "Group"
-Level 3
+Level 4
 
 Title "Cancel Left Multiplication"
 

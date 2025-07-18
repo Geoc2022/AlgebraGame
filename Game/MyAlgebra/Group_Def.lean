@@ -21,9 +21,9 @@ class AbstactSemigroup (α : Type) extends AbstactMagma α where
   mul_assoc : ∀ a b c : α, a ⬝ b ⬝ c = a ⬝ (b ⬝ c)
 
 class AbstactUnitalMagma (α : Type) extends One α, AbstactMagma α where
-  /-- One is a left neutral element for the operation. -/
+  /-- Id is a left neutral element for the operation. -/
   one_mul : ∀ a : α, e ⬝ a = a
-  /-- One is a right neutral element for the operation -/
+  /-- Id is a right neutral element for the operation -/
   mul_one : ∀ a : α, a ⬝ e = a
 
 
@@ -33,7 +33,7 @@ class AbstactInv (α : Type) where
   /-- The inversion function -/
   inv : α → α
 -- @[inherit_doc]
--- postfix:max "⁻¹" => Inv.inv
+-- postfix:max "⁻¹" => AbstactInv.inv
 
 class AbstactGroup (G : Type) extends AbstactMonoid G, AbstactInv G where
   inv_mul : ∀ a : G, inv a ⬝ a = e

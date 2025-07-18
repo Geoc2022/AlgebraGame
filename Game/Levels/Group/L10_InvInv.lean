@@ -1,7 +1,7 @@
-import Game.Levels.Group.L08_CombinedInv2
+import Game.Levels.Group.L09_CombinedInv2
 
 World "Group"
-Level 9
+Level 10
 
 Title "Inverse of an Inverse"
 

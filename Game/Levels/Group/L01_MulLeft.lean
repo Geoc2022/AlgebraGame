@@ -8,7 +8,7 @@ Title "Left Multiplication"
 
 namespace MyAlgebra
 
-Introduction "Just to get us warmed up, let's create some lemmas for multiplication."
+Introduction "Just to get us warmed up, let's create some lemmas for multiplication. We wil use the rewrite function to create a basic proof that multiplication is a function. In other words, if `g1 = g2`, then `h * g1 = h * g2` for any `h`. This could be useful if you want to use calc blocks later on."
 
 /--
 `mul_left` is a proof that if `g1 = g2`, then `h * g1 = h * g2` - basically `h * _` is a function.
