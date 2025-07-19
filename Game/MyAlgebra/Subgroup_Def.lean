@@ -1,60 +1,72 @@
-import Game.MyAlgebra.AddMul_Group_Def
+import Game.Levels.Group.L10_InvInv
 
 namespace MyAlgebra
-
--- -- class Submonoid (S : Type) (M : Type) [Monoid M] [SetLike S M] : Prop where
--- --   mul_mem : ∀ (s : S) {a b : M}, a ∈ s → b ∈ s → a * b ∈ s
--- --   one_mem : ∀ s : S, 1 ∈ s
-
--- -- class Subgroup (S : Type) (G : Type) [Group G] [SetLike S G] extends Submonoid S G : Prop where
--- --   inv_mem : ∀ (s : S) {a : G}, a ∈ s → a⁻¹ ∈ s
-
--- class Submonoid [Monoid M] (S : Set M) : Prop where
---   mul_mem : ∀ {a b : M}, a ∈ S → b ∈ S → a * b ∈ S
---   one_mem : 1 ∈ S
-
--- class Subgroup [Group G] (S : Set G) extends Submonoid S : Prop where
---   inv_mem : ∀ {a : G}, a ∈ S → a⁻¹ ∈ S
-
--- lemma test (S : Set G) [Group G] [Subgroup S] : 1 ∈ S := one_mem
-
--- -- lemma test [Group G] [SetLike S G] [Subgroup S G] : ∀ s : S, 1 ∈ s :=
--- --   sorry
-
-@[ext]
-structure Submonoid (M : Type) [Monoid M] where
-  carrier : Set M
-  mul_mem {a b} : a ∈ carrier → b ∈ carrier → a * b ∈ carrier
-  one_mem : 1 ∈ carrier
-
-instance [Monoid M] : SetLike (Submonoid M) M where
-  coe := Submonoid.carrier
-  coe_injective' := Submonoid.ext
-
-class SubmonoidClass (S : Type) (M : Type) [Monoid M] [SetLike S M] : Prop where
-  mul_mem : ∀ (s : S) {a b : M}, a ∈ s → b ∈ s → a * b ∈ s
-  one_mem : ∀ s : S, 1 ∈ s
-
-instance [Monoid M] : SubmonoidClass (Submonoid M) M where
-  mul_mem := Submonoid.mul_mem
-  one_mem := Submonoid.one_mem
-
 
 @[ext]
 structure Subgroup (G : Type) [Group G] where
   carrier : Set G
-  mul_mem {a b} : a ∈ carrier → b ∈ carrier → a * b ∈ carrier
   one_mem : 1 ∈ carrier
-  inv_mem {a} : a ∈ carrier → a⁻¹ ∈ carrier
+  mul_closure : ∀ {a b : G}, a ∈ carrier → b ∈ carrier → a * b ∈ carrier
+  inv_closure : ∀ {a : G}, a ∈ carrier → a⁻¹ ∈ carrier
 
-instance [Group G] : SetLike (Subgroup G) G where
-  coe := Subgroup.carrier
-  coe_injective' := Subgroup.ext
+variable {G : Type} [Group G]
 
-class SubgroupClass (S : Type) (G : Type) [Group G] [SetLike S G] extends SubmonoidClass S G : Prop where
-  inv_mem : ∀ (s : S) {a : G}, a ∈ s → a⁻¹ ∈ s
 
-instance [Group G] : SubgroupClass (Subgroup G) G where
-  mul_mem := Subgroup.mul_mem
-  one_mem := Subgroup.one_mem
-  inv_mem := Subgroup.inv_mem
+instance : Coe (Subgroup G) (Set G) := ⟨λ H ↦ H.carrier⟩
+instance : CoeSort (Subgroup G) (Type _) := ⟨λ H ↦ H.carrier⟩
+instance : Membership G (Subgroup G) := ⟨λ g H ↦ g ∈ H.carrier⟩
+
+attribute [coe] Subgroup.carrier
+
+instance {H : Subgroup G} : Group H where
+  mul := λ ⟨a, ha⟩ ⟨b, hb⟩ ↦ ⟨a * b, H.mul_closure ha hb⟩
+  mul_assoc := by intros; ext; apply mul_assoc
+  one := ⟨1, H.one_mem⟩
+  one_mul := by intros; ext; apply one_mul
+  mul_one := by intros; ext; apply mul_one
+  inv := λ ⟨a, ha⟩ ↦ ⟨a⁻¹, H.inv_closure ha⟩
+  inv_mul := by intros; ext; apply inv_mul
+  mul_inv := by intros; ext; apply mul_inv
+
+/--
+1. H ≠ ∅
+2. for all x, y ∈ H, x * (y⁻¹) ∈ H
+-/
+def Subgroup_Criterion (S : Set G) (he : ∃ (s : G), s ∈ S)
+(hc : ∀ (x y : G), x ∈ S → y ∈ S → (x * (y⁻¹)) ∈ S)
+: Subgroup G where
+  carrier := S
+  one_mem := by
+    obtain ⟨s, hs⟩ := he
+    rw [← mul_inv s]
+    apply hc <;> exact hs
+  inv_closure := by
+    intro a
+    have hc2 := hc
+    rw [← one_mul (a⁻¹)]
+    apply hc2 1 a
+    have h1 : 1 ∈ S := by
+      obtain ⟨s, hs⟩ := he
+      rw [← mul_inv s]
+      apply hc <;> exact hs
+    exact h1
+  mul_closure := by
+    intro a b ha hb
+    have hc3 := hc
+    have hc4 := hc
+    specialize hc3 a (b⁻¹)
+    rw [← inv_inv b] at hc3
+    have hf : b ∈ S → b⁻¹ ∈ S := by
+      intro hb
+      rw [←one_mul (b⁻¹)]
+      apply hc4 1 b
+      have h1 : 1 ∈ S := by
+        obtain ⟨s, hs⟩ := he
+        rw [← mul_inv s]
+        apply hc <;> exact hs
+      exact h1
+      exact hb
+    apply hf at hb
+    apply hc3 at ha
+    apply ha at hb
+    exact hb
