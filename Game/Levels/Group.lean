@@ -1,12 +1,14 @@
 import Game.Levels.Group.L01_MulLeft
 import Game.Levels.Group.L02_MulRight
-import Game.Levels.Group.L03_CancelLeft
-import Game.Levels.Group.L04_CancelRight
-import Game.Levels.Group.L05_OneUnique
-import Game.Levels.Group.L06_InvUnique
-import Game.Levels.Group.L07_CombinedInv
-import Game.Levels.Group.L08_CombinedInv2
-import Game.Levels.Group.L09_InvInv
+import Game.Levels.Group.L03_MulInv
+import Game.Levels.Group.L04_CancelLeft
+import Game.Levels.Group.L05_CancelRight
+import Game.Levels.Group.L06_OneUnique
+import Game.Levels.Group.L07_InvUnique
+import Game.Levels.Group.L08_CombinedInv
+import Game.Levels.Group.L09_CombinedInv2
+import Game.Levels.Group.L10_InvId
+import Game.Levels.Group.L11_InvInv
 
 
 World "Group"

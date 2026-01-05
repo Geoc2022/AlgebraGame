@@ -23,7 +23,7 @@ Introduction "
 TheoremDoc MyAlgebra.hom_comp_hom as "hom_comp_hom" in "Group"
 Statement hom_comp_hom [Group G] [Group H] [Group J] (f1 : GroupHom G H) (f2 : GroupHom H J) : GroupHom G J := by
   Hint "Use the `use` tactic with the form `use f` where `f` is the function you want to use."
-  Hint "Use `λ` notation and `∘` (written \"\\circ\") to construct functions (the function you need is not too complicated).)"
+  Hint "Use `λ` notation and/or `∘` (written \"\\circ\") to construct functions"
   use f2 ∘ f1
   intro a b
   have h1 := f1.hom a b

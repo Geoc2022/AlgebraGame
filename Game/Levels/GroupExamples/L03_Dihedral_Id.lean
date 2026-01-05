@@ -54,7 +54,7 @@ variable {n : ℕ}
 `Dihedral_id` is a proof that the identity element of the dihedral group `D_n` is `r 0`.
 -/
 TheoremDoc MyAlgebra.Dihedral_id as "Dihedral_id" in "Group Examples"
-Statement Dihedral_id (n : ℕ) (a : Dihedral n) : ∃ b : Dihedral n, mul a (r 0) = a ∧ mul (r 0) a = a := by
+Statement Dihedral_id (n : ℕ) (a : Dihedral n) : ∃ b : Dihedral n, mul a b = a ∧ mul b a = a := by
   use r 0
   Hint "Use the definition of multiplication in the dihedral group."
   induction a with
