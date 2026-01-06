@@ -1,7 +1,7 @@
-import Game.Levels.Group.L02_MulRight
+import Game.Levels.Monoid.L03_OneUnique
 
 World "Group"
-Level 3
+Level 1
 
 Title "Right Multiplicative Inverse"
 
@@ -30,3 +30,24 @@ Conclusion "Congrats!"
 TheoremDoc MyAlgebra.Group.mul_inv as "mul_inv" in "Group"
 
 NewTheorem MyAlgebra.Group.mul_inv
+
+section Group_Axioms
+/--
+`mul_one` is a proof that for all `g : G`, `1 * g = g` (Left Identity Axiom).
+-/
+TheoremDoc mul_one as "mul_one" in "Group"
+/--
+`one_mul` is a proof that for all `g : G`, `g * 1 = g` (Right Identity Axiom).
+-/
+TheoremDoc one_mul as "one_mul" in "Group"
+
+/--
+`inv_mul` is a proof that for all `g : G`, `g⁻¹ * g = 1` (Left Inverse Axiom).
+-/
+TheoremDoc MyAlgebra.Group.inv_mul as "inv_mul" in "Group"
+
+/--
+`mul_assoc` is a proof that for all `g1 g2 g3 : G`, `(g1 * g2) * g3 = g1 * (g2 * g3)` (Associative Law).
+-/
+TheoremDoc MyAlgebra.Semigroup.mul_assoc as "mul_assoc" in "Group"
+end Group_Axioms

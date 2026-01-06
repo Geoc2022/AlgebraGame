@@ -1,7 +1,7 @@
-import Game.Levels.Group.L08_CombinedInv
+import Game.Levels.Group.L05_CombinedInv
 
 World "Group"
-Level 9
+Level 6
 
 Title "Inverse of n Products"
 

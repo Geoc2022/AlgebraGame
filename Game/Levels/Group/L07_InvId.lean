@@ -1,7 +1,7 @@
-import Game.Levels.Group.L09_CombinedInv2
+import Game.Levels.Group.L06_CombinedInv2
 
 World "Group"
-Level 10
+Level 7
 
 Title "Inverse of the Identity"
 

@@ -1,21 +1,21 @@
 import Game.Metadata
 import Game.MyAlgebra.AddMul_Group_Def
 
-World "Group"
+World "Monoid"
 Level 1
 
 Title "Left Multiplication"
 
 namespace MyAlgebra
 
-Introduction "Just to get us warmed up, let's create some lemmas for multiplication. We wil use the rewrite function to create a basic proof that multiplication is a function. In other words, if `g1 = g2`, then `h * g1 = h * g2` for any `h`. This could be useful if you want to use calc blocks later on."
+Introduction "Just to get us warmed up, let's create some lemmas for multiplication. We wil use the rewrite function to create a basic proof that multiplication is a function. In other words, if `m1 = m2`, then `m * m1 = m * m2` for any `m`. This could be useful if you want to use calc blocks later on."
 
 /--
-`mul_left` is a proof that if `g1 = g2`, then `h * g1 = h * g2` - basically `h * _` is a function.
+`mul_left` is a proof that if `m1 = m2`, then `m * m1 = m * m2` - basically `m * _` is a function.
 -/
-TheoremDoc MyAlgebra.mul_left as "mul_left" in "Group"
+TheoremDoc MyAlgebra.mul_left as "mul_left" in "Monoid"
 @[to_additive]
-Statement mul_left (g : G) [Group G] : g1 = g2 → g * g1 = g * g2 := by
+Statement mul_left (m : M) [Monoid M] : m1 = m2 → m * m1 = m * m2 := by
   Hint "Start by introducing the hypothesis with `intro`."
   intro h
   Hint "Now, use `rw` to rewrite the goal using the hypothesis `{h}`."
@@ -90,25 +90,20 @@ TacticDoc nth_rewrite
 NewTactic rfl rw intro apply «have» obtain «calc» exact simp «repeat» nth_rewrite
 end Basic_Tactics
 
-section Group_Axioms
+section Monoid_Axioms
 /--
-`mul_one` is a proof that for all `g : G`, `1 * g = g` (Left Identity Axiom).
+`mul_one` is a proof that for all `m : M`, `1 * m = m` (Left Identity Axiom).
 -/
-TheoremDoc mul_one as "mul_one" in "Group"
+TheoremDoc mul_one as "mul_one" in "Monoid"
 /--
-`one_mul` is a proof that for all `g : G`, `g * 1 = g` (Right Identity Axiom).
+`one_mul` is a proof that for all `m : M`, `m * 1 = m` (Right Identity Axiom).
 -/
-TheoremDoc one_mul as "one_mul" in "Group"
+TheoremDoc one_mul as "one_mul" in "Monoid"
 
 /--
-`inv_mul` is a proof that for all `g : G`, `g⁻¹ * g = 1` (Left Inverse Axiom).
+`mul_assoc` is a proof that for all `m1 m2 m3 : M`, `(m1 * m2) * m3 = m1 * (m2 * m3)` (Associative Law).
 -/
-TheoremDoc MyAlgebra.Group.inv_mul as "inv_mul" in "Group"
+TheoremDoc MyAlgebra.Semigroup.mul_assoc as "mul_assoc" in "Monoid"
+end Monoid_Axioms
 
-/--
-`mul_assoc` is a proof that for all `g1 g2 g3 : G`, `(g1 * g2) * g3 = g1 * (g2 * g3)` (Associative Law).
--/
-TheoremDoc MyAlgebra.Semigroup.mul_assoc as "mul_assoc" in "Group"
-end Group_Axioms
-
-NewTheorem mul_one one_mul MyAlgebra.Group.inv_mul MyAlgebra.Semigroup.mul_assoc
+NewTheorem mul_one one_mul MyAlgebra.Semigroup.mul_assoc

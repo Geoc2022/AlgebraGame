@@ -1,7 +1,7 @@
-import Game.Levels.Group.L07_InvUnique
+import Game.Levels.Group.L04_InvUnique
 
 World "Group"
-Level 8
+Level 5
 
 Title "Inverse of a Product"
 

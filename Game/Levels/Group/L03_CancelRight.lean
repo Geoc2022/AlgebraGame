@@ -1,7 +1,7 @@
-import Game.Levels.Group.L04_CancelLeft
+import Game.Levels.Group.L02_CancelLeft
 
 World "Group"
-Level 5
+Level 3
 
 Title "Cancel Right Multiplication"
 

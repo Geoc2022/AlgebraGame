@@ -1,7 +1,7 @@
-import Game.Levels.Group.L06_OneUnique
+import Game.Levels.Group.L03_CancelRight
 
 World "Group"
-Level 7
+Level 4
 
 Title "Unique Inverse"
 
