@@ -1,6 +1,10 @@
+import Game.Levels.Monoid
 import Game.Levels.Group
+import Game.Levels.PowMonoid
+import Game.Levels.PowGroup
 import Game.Levels.GroupHom
 import Game.Levels.Ring
+import Game.Levels.GroupExamples
 
 
 -- Here's what we'll put on the title screen
