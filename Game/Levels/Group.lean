@@ -6,6 +6,7 @@ import Game.Levels.Group.L05_CombinedInv
 import Game.Levels.Group.L06_CombinedInv2
 import Game.Levels.Group.L07_InvId
 import Game.Levels.Group.L08_InvInv
+import Game.Levels.Group.L09_InvInj
 
 
 World "Group"
