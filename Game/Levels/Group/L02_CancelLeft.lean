@@ -7,7 +7,7 @@ Title "Cancel Left Multiplication"
 
 namespace MyAlgebra
 
-Introduction "We now prove that we can cancel left multiplication. This is a bit more challenging than the previous two levels, but it will be helpful to know this later on. This is one half of the \"Cancellation Rule for Groups\""
+Introduction "We now prove that we can cancel left multiplication. This is a nice helper lemma to work with groups."
 
 /--
 `mul_left_cancel` is a proof that if `h * g1 = h * g2`, then `g1 = g2` - the inverse of `mul_left` is a function.

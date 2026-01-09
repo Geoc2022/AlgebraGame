@@ -7,7 +7,7 @@ Title "Right Multiplicative Inverse"
 
 namespace MyAlgebra
 
-Introduction "We will now prove that we the inverse is a also a right multiplicative inverse. This is a bit more challenging than the previous two levels, but it will be helpful to know this later on. This is one half of the \"Cancellation Rule for Groups\""
+Introduction "We will now prove that we the inverse is a also a right multiplicative inverse. This is a bit more challenging than the previous levels, but it will be helpful to know this later on. This is one half of the \"Cancellation Rule for Groups\""
 
 /--
 `mul_inv` is a proof that for all `g : G`, `g * g⁻¹ = 1` (Right Inverse Axiom).

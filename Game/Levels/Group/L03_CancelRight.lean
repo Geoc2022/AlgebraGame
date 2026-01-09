@@ -7,7 +7,7 @@ Title "Cancel Right Multiplication"
 
 namespace MyAlgebra
 
-Introduction "We now prove that we can cancel right multiplication - the duel of the previous level. This is the second half of the \"Cancellation Rule for Groups\""
+Introduction "We now prove that we can cancel right multiplication - the duel of the previous level."
 
 /--
 `mul_right_cancel` is a proof that if `g1 * g = g2 * g`, then `g1 = g2` - the inverse of `mul_right` is a function.
