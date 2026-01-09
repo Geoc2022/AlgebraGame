@@ -1,5 +1,5 @@
 import Game.MyAlgebra.Z_mod_mZ
-import Game.Levels.Group.L08_InvInv
+import Game.Levels.Group
 
 World "Group Examples"
 Level 1

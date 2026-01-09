@@ -1,4 +1,4 @@
-import Game.Levels.Group.L11_InvInv
+import Game.Levels.Group
 
 namespace MyAlgebra
 
