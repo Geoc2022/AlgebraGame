@@ -41,3 +41,19 @@ Statement hom_preserves_one {G H} [Group G] [Group H] (f : GroupHom G H) : f 1 =
 
 
 Conclusion "Congrats!"
+
+NewTheorem MyAlgebra.hom_preserves_one
+
+/--
+`MyAlgebra.oneFunction G H` is the trivial group homomorphism from group `G` to group `H`,
+mapping every element `g : G` to the identity element `1 : H`.
+-/
+DefinitionDoc MyAlgebra.oneFunction as "oneFunction" in "GroupHom"
+
+/--
+`id x` is the identity function, which returns `x` itself.
+-/
+DefinitionDoc id as "id" in "GroupHom"
+
+NewDefinition MyAlgebra.oneFunction id
+

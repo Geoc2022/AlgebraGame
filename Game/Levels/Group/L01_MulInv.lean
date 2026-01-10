@@ -29,8 +29,6 @@ Conclusion "Congrats!"
 -/
 TheoremDoc MyAlgebra.Group.mul_inv as "mul_inv" in "Group"
 
-NewTheorem MyAlgebra.Group.mul_inv
-
 section Group_Axioms
 /--
 `mul_one` is a proof that for all `g : G`, `1 * g = g` (Left Identity Axiom).
@@ -51,3 +49,17 @@ TheoremDoc MyAlgebra.Group.inv_mul as "inv_mul" in "Group"
 -/
 TheoremDoc MyAlgebra.Semigroup.mul_assoc as "mul_assoc" in "Group"
 end Group_Axioms
+
+NewTheorem MyAlgebra.Group.mul_inv mul_one one_mul MyAlgebra.Group.inv_mul MyAlgebra.Semigroup.mul_assoc
+
+/--
+The `Iff.intro` tactic is used to prove a goal of the form `P ↔ Q`. It splits the goal into two subgoals: `P → Q` and `Q → P`.
+-/
+TacticDoc «Iff.intro»
+
+/--
+The `constructor` tactic can be used to prove goals that are inductive types with a single constructor. For example, it can be used to prove `P ↔ Q` by proving `P → Q`, or to prove `P ∧ Q` by splitting the goal into proving `P` and `Q`.
+-/
+TacticDoc «constructor»
+
+NewTactic «Iff.intro» «constructor»

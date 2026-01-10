@@ -30,3 +30,42 @@ Statement Z_mod_mZ_id (m : ℕ) (a : ZMod m) : 0 + a = a ∧ a + 0 = a := by
   exact ⟨rfl, rfl⟩
 
 Conclusion "Congrats!"
+
+/--
+`ZMod n` is the type of integers modulo `n`.
+-/
+DefinitionDoc ZMod as "ZMod" in "Group Examples"
+
+/--
+`sub_self` is a proof that for any element `a`, `a - a = 0`.
+-/
+TheoremDoc sub_self as "sub_self" in "Group Examples"
+
+/--
+`sub_eq_neg_add` is a proof that `a - b = -b + a`.
+-/
+TheoremDoc sub_eq_neg_add as "sub_eq_neg_add" in "Group Examples"
+
+/--
+`sub_eq_add_neg` is a proof that `a - b = a + (-b)`.
+-/
+TheoremDoc sub_eq_add_neg as "sub_eq_add_neg" in "Group Examples"
+
+NewTheorem sub_self sub_eq_neg_add sub_eq_add_neg
+
+/--
+`sr i` represents a reflection element in the dihedral group `D_n`, where `i` is an integer modulo `n`.
+-/
+DefinitionDoc MyAlgebra.Dihedral.sr as "sr" in "Group Examples"
+
+/--
+`r i` represents a rotation element in the dihedral group `D_n`, where `i` is an integer modulo `n`.
+-/
+DefinitionDoc MyAlgebra.Dihedral.r as "r" in "Group Examples"
+
+/--
+`mul a b` represents the multiplication of elements `a` and `b` in the dihedral group.
+-/
+DefinitionDoc MyAlgebra.Dihedral.mul as "Dihedral.mul" in "Group Examples"
+
+NewDefinition ZMod MyAlgebra.Dihedral.sr MyAlgebra.Dihedral.r MyAlgebra.Dihedral.mul
