@@ -14,7 +14,7 @@ Introduction "We now prove that we can cancel right multiplication - the duel of
 -/
 TheoremDoc MyAlgebra.mul_right_cancel as "mul_right_cancel" in "Group"
 @[to_additive]
-Statement mul_right_cancel (g : G) [Group G] : g1 * g = g2 * g → g1 = g2 := by
+Statement mul_right_cancel {G} (g : G) {g1 g2 : G} [Group G] : g1 * g = g2 * g → g1 = g2 := by
   intro h
   have q := mul_right (g⁻¹) h
   rw [mul_assoc] at q

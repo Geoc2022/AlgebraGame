@@ -16,7 +16,6 @@ class AddMonoid (α : Type) extends AddSemigroup α, AddZeroClass α where
 
 @[to_additive]
 class Monoid (α : Type) extends Semigroup α, MulOneClass α
-attribute [to_additive existing] Monoid.toMulOneClass
 
 class AddGroup (G : Type) extends AddMonoid G, Neg G where
   /-- -a + a = 0 -/

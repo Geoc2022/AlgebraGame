@@ -19,13 +19,13 @@ Statement gpow_add {G} [Group G] (g : G) (x y : ℤ) :
   (g ^ x) * (g ^ y) = g ^ (x + y) := by
   Hint "Use `Int.induction_on` on `y`."
   induction y using Int.induction_on with
-  | hz =>
+  | zero =>
     -- y = 0
     simp
-  | hp y ih =>
+  | succ y ih =>
     Hint "Use the recursive formula `gpow_succ` and associativity."
     simp [← Int.add_assoc, gpow_succ, ← ih, mul_assoc]
-  | hn y ih =>
+  | pred y ih =>
     Hint "Use `gpow_pred` for the negative step."
     rw [← gpow_pred]
     rw [← mul_assoc]

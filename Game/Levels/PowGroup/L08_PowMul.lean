@@ -19,17 +19,17 @@ Statement gpow_mul {G} [Group G] (g : G) (x y : ℤ) :
     g ^ (x * y) = (g ^ x) ^ y := by
   Hint "Use `Int.induction_on` on `y` as in earlier levels."
   induction y using Int.induction_on with
-  | hz =>
+  | zero =>
     Hint "Start with `y = 0`."
     -- x * 0 = 0, and (g^x)^0 = 1
     simp
-  | hp n ih =>
+  | succ n ih =>
     Hint "Use the identity `x * (n+1) = x * n + x` and the addition lemma for powers."
     -- y = n+1
     -- g^(x*(n+1)) = g^(x*n + x) = g^(x*n) * g^x
     -- (g^x)^(n+1) = (g^x)^n * g^x
     rw [mul_add, mul_one, ←gpow_add, gpow_succ, ih]
-  | hn n ih =>
+  | pred n ih =>
     Hint "For the negative step, use `Int.mul_sub` and your subtraction lemma `gpow_sub`."
     -- y = -[n+1]
     -- x * (-(n+1)) = x * (-n) - x

@@ -14,7 +14,7 @@ Introduction "In this section, we will prove that the inverse of the identity el
 -/
 TheoremDoc MyAlgebra.inv_id as "inv_id" in "Group"
 -- @[to_additive]
-Statement inv_id [Group G] : (1 : G) = (1 : G)⁻¹ := by
+Statement inv_id {G} [Group G] : (1 : G) = (1 : G)⁻¹ := by
   apply inv_unique 1
 
   constructor

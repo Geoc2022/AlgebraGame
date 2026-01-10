@@ -13,7 +13,7 @@ Introduction "We will now prove that we the inverse is a also a right multiplica
 `mul_inv` is a proof that for all `g : G`, `g * g⁻¹ = 1` (Right Inverse Axiom).
 -/
 TheoremDoc MyAlgebra.mul_inv' as "mul_inv" in "Group"
-Statement mul_inv' (g : G) [Group G] : g * g⁻¹ = 1 := by
+Statement mul_inv' {G} (g : G) [Group G] : g * g⁻¹ = 1 := by
   Hint "We have a similar lemma for the left inverse, can we use it here?"
   rw [←one_mul (g * _)]
   rw [←inv_mul (g⁻¹)]

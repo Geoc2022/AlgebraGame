@@ -16,7 +16,7 @@ Introduction "
 `mul_zero` is a proof that `a * 0 = 0` for all `a : R` in a ring `R`. This connects the identity element of the additive group with the multiplicative group
 -/
 TheoremDoc MyAlgebra.mul_zero as "mul_zero" in "Ring"
-Statement mul_zero {R : Type} [Ring R] (a : R) : a * 0 = 0 := by
+Statement mul_zero {R} [Ring R] (a : R) : a * 0 = 0 := by
   have h : a * 0 = a * 0 + a * 0 :=
     calc a * 0 = a * (0 + 0) := by rw [add_zero]
       _ = a * 0 + a * 0 := by rw [distrib_left]
@@ -28,7 +28,7 @@ Statement mul_zero {R : Type} [Ring R] (a : R) : a * 0 = 0 := by
 `zero_mul` is a proof that `0 * a = 0` for all `a : R` in a ring `R`. This connects the identity element of the additive group with the multiplicative group
 -/
 TheoremDoc MyAlgebra.zero_mul as "zero_mul" in "Ring"
-theorem zero_mul {R : Type} [Ring R] (a : R) : 0 * a = 0 := by
+theorem zero_mul {R} [Ring R] (a : R) : 0 * a = 0 := by
   have h : 0 * a = 0 * a + 0 * a :=
     calc 0 * a = (0 + 0) * a := by rw [zero_add]
       _ = 0 * a + 0 * a := by rw [distrib_right]

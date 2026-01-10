@@ -14,7 +14,7 @@ Introduction "Our group has inverses of elements by definition but what about th
 -/
 TheoremDoc MyAlgebra.inv_anticomm as "inv_anticomm" in "Group"
 -- @[to_additive]
-Statement inv_anticomm (g h : G) [Group G] : (h⁻¹ * g⁻¹) = (g * h)⁻¹ := by
+Statement inv_anticomm {G} (g h : G) [Group G] : (h⁻¹ * g⁻¹) = (g * h)⁻¹ := by
   Hint "You can use `And.intro` to break down the goal into two goals."
   apply inv_unique (g * h) (h⁻¹ * g⁻¹)
   apply And.intro

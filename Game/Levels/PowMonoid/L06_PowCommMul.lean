@@ -1,6 +1,6 @@
 import Game.Levels.PowMonoid.L05_PowId
 
-World "Monoid"
+World "Monoid Power"
 Level 6
 
 Title "Commuting a Power with its Base"

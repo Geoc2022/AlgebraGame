@@ -15,7 +15,7 @@ Introduction "
 `hom_div_order` is a theorem that states that a homomorphism takes elements to elements of order dividing the original element's order.
 -/
 TheoremDoc MyAlgebra.hom_div_order as "hom_div_order" in "Group"
-Statement hom_div_order [Group G] [Group H] (f : GroupHom G H) (a : G) (n : ℕ) : a^n = 1 → (f a)^n = 1 := by
+Statement hom_div_order {G H} [Group G] [Group H] (f : GroupHom G H) (a : G) (n : ℕ) : a^n = 1 → (f a)^n = 1 := by
   sorry
 
 -- Conclusion "Congrats!"

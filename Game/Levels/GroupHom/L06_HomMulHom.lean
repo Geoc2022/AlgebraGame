@@ -20,7 +20,7 @@ Introduction "
 `hom_mul_hom` is a proof that a homomorphism multiplied by a homomorphism is a homomorphism.
 -/
 TheoremDoc MyAlgebra.hom_mul_hom as "hom_mul_hom" in "Ring"
-Statement hom_mul_hom [CommGroup G] [CommGroup H] (f1 : GroupHom G H) (f2 : GroupHom G H) : GroupHom G H := by
+Statement hom_mul_hom {G H} [CommGroup G] [CommGroup H] (f1 : GroupHom G H) (f2 : GroupHom G H) : GroupHom G H := by
   use f1 * f2
   intro a b
   have h1 := f1.hom a b

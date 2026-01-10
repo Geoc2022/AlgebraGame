@@ -15,7 +15,7 @@ Introduction "Just to get us warmed up, let's create some lemmas for multiplicat
 -/
 TheoremDoc MyAlgebra.mul_left as "mul_left" in "Monoid"
 @[to_additive]
-Statement mul_left (m : M) [Monoid M] : m1 = m2 → m * m1 = m * m2 := by
+Statement mul_left {M} (m : M) {m1 m2 : M} [Monoid M] : m1 = m2 → m * m1 = m * m2 := by
   Hint "Start by introducing the hypothesis with `intro`."
   intro h
   Hint "Now, use `rw` to rewrite the goal using the hypothesis `{h}`."

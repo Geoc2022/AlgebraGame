@@ -14,7 +14,7 @@ Introduction "We know from monoid axioms that there exists an identity element, 
 -/
 TheoremDoc MyAlgebra.id_unique as "id_unique" in "Monoid"
 -- @[to_additive]
-Statement id_unique (w : M) [Monoid M] (h : ∀ (m : M), (m * w = m ∧ w * m = m)) : w = 1 := by
+Statement id_unique {M} (w : M) [Monoid M] (h : ∀ (m : M), (m * w = m ∧ w * m = m)) : w = 1 := by
   obtain ⟨h1, h2⟩ := h 1
   rw [mul_one] at h2
   rw [one_mul] at h1

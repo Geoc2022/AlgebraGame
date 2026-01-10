@@ -14,7 +14,7 @@ Introduction "Here's a dual of that last level."
 -/
 TheoremDoc MyAlgebra.mul_right as "mul_right" in "Monoid"
 @[to_additive]
-Statement mul_right (m : M) [Monoid M] : m1 = m2 → m1 * m = m2 * m := by
+Statement mul_right {M} (m : M) {m1 m2 : M} [Monoid M] : m1 = m2 → m1 * m = m2 * m := by
   intro h
   rw [h]
 

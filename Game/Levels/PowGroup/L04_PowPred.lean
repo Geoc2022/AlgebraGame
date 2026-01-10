@@ -17,8 +17,8 @@ TheoremDoc MyAlgebra.gpow_pred as "gpow_pred" in "Group Power"
 Statement gpow_pred {G} [Group G] (g : G) (x : ℤ) :
   (g ^ x) * g⁻¹ = g ^ (x - 1) := by
   Hint "You can proceed by cases on `x` (nonnegative / negative) as in the definition of `gpow`."
-  induction x with
-  | ofNat x =>
+  match x with
+  | Int.ofNat x =>
     simp only [Int.ofNat_eq_coe]
     cases x with
     | zero =>
@@ -27,7 +27,7 @@ Statement gpow_pred {G} [Group G] (g : G) (x : ℤ) :
     | succ x =>
       simp [gpow, Nat.cast_add, Nat.cast_one]
       rw [gpow_succ, mul_assoc, mul_inv, mul_one]
-  | negSucc x =>
+  | Int.negSucc x =>
     rw [Int.negSucc_sub_one, gpow_negSucc, gpow_negSucc]
     repeat rw [mpow_succ_right]
 

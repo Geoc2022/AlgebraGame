@@ -14,9 +14,9 @@ Introduction "
 /--
 `inv_inj` is a proof that the inverse is injective.
 -/
-TheoremDoc MyAlgebra.inv_inv as "inv_inj" in "Group"
+TheoremDoc MyAlgebra.inv_inj as "inv_inj" in "Group"
 @[to_additive]
-Statement inv_inj (a b : G) [Group G] : a⁻¹ = b⁻¹ ↔ a = b := by
+Statement inv_inj {G} (a b : G) [Group G] : a⁻¹ = b⁻¹ ↔ a = b := by
   apply Iff.intro
   · intro h
     calc a = a := by rfl

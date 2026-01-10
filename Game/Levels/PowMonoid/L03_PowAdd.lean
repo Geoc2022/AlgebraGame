@@ -25,6 +25,8 @@ Statement mpow_add {M} [Monoid M] (m : M) (x y : ℕ) :
     Hint "Use the recursive definition of pow and the induction hypothesis."
     -- m^(x + (y+1)) = m^(x + y + 1) = m^(x+y)*m
     -- and (m^x * m^y) * m = m^x * (m^y * m)
-    simp [Nat.add_succ, mpow_succ_right, ih, mul_assoc]
+    rw [Nat.add_succ, mpow_succ_right, ih]
+    rw [mpow_succ_right]
+    rw [mul_assoc]
 
 Conclusion "Awesome! You have the exponent law for addition"

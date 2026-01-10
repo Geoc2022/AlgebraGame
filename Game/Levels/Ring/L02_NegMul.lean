@@ -15,7 +15,7 @@ Introduction "
 `neg_mul` is a proof that `(-a) * (-b) = a * b`.
 -/
 TheoremDoc MyAlgebra.neg_mul as "neg_mul" in "Ring"
-Statement neg_mul {R : Type} [Ring R] (a b : R) : (-a) * (-b) = a * b := by
+Statement neg_mul {R} [Ring R] (a b : R) : (-a) * (-b) = a * b := by
   have h1 : -(a * b) = (-a) * b := by
     apply add_right_cancel (a * b)
     rw [neg_add]

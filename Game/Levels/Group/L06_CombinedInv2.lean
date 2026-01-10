@@ -41,7 +41,7 @@ NewDefinition MyAlgebra.prod_list MyAlgebra.prod_list_inv
 -/
 -- TheoremDoc MyAlgebra.inv_n_prod as "inv_n_prod" in "Group"
 -- Statement inv_n_prod (l : List G) [Group G] : is_inv (prod_list l) (prod_list_inv l) := by
-Statement (l : List G) [Group G] : (prod_list_inv l) = (prod_list l)⁻¹ := by
+Statement {G} (l : List G) [Group G] : (prod_list_inv l) = (prod_list l)⁻¹ := by
   Hint "Since we're working with a generalized number of elements, it might be helpful to use induction. It also helps that the functions `prod_list` and `prod_list_inv` are defined recursively."
   apply inv_unique (prod_list l) (prod_list_inv l)
   induction' l with fst rst

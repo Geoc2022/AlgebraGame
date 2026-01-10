@@ -14,7 +14,7 @@ Introduction "Similar to how there's only one identity element, there's only one
 -/
 TheoremDoc MyAlgebra.inv_unique as "inv_unique" in "Group"
 -- @[to_additive]
-Statement inv_unique (g i : G) [Group G] (h : g * i = (1 : G) ∧ i * g = (1 : G)) : i = g⁻¹ := by
+Statement inv_unique {G} (g i : G) [Group G] (h : g * i = (1 : G) ∧ i * g = (1 : G)) : i = g⁻¹ := by
   rw [←mul_one g⁻¹]
   rw [←h.1]
   rw [← mul_assoc]

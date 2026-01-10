@@ -14,7 +14,7 @@ Introduction "We now prove that we can cancel left multiplication. This is a nic
 -/
 TheoremDoc MyAlgebra.mul_left_cancel as "mul_left_cancel" in "Group"
 @[to_additive]
-Statement mul_left_cancel (g : G) [Group G] : g * g1 = g * g2 → g1 = g2 := by
+Statement mul_left_cancel {G} (g : G) {g1 g2 : G} [Group G] : g * g1 = g * g2 → g1 = g2 := by
   intro h
   Hint "What can we do to get rid of the `g` on both sides? It might help to use a previous lemma."
   have q := mul_left g⁻¹ h

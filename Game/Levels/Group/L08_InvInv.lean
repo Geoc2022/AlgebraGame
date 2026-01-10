@@ -16,7 +16,7 @@ Introduction "
 -/
 TheoremDoc MyAlgebra.inv_inv as "inv_inv" in "Group"
 @[to_additive]
-Statement inv_inv (a : G) [Group G] : a = a⁻¹⁻¹ := by
+Statement inv_inv {G} (a : G) [Group G] : a = a⁻¹⁻¹ := by
   calc a = a := by rfl
     _ = a⁻¹⁻¹ * a⁻¹ * a := by
       rw [inv_mul]
