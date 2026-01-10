@@ -19,6 +19,6 @@ Statement gpow_neg_one {G} [Group G] (g : G) :
   have : (1 : ℤ) = (1 : ℕ) := rfl
   -- or simply: `rw [← Int.ofNat_one]`
   rw [← Int.ofNat_one, gpow_neg_mpow]
-  simp [mpow_one]
+  simp
 
 Conclusion "Now you see that the usual inverse `g⁻¹` is just `g` raised to `-1`."

@@ -182,8 +182,6 @@ msgstr ""
 #. §3: `mul_left`
 #: Game.Levels.Group.L02_CancelLeft
 #: Game.Levels.Group.L03_CancelRight
-#: Game.Levels.Ring.L01_MulZero
-#: Game.Levels.Ring.L01_MulZero
 msgid "§0 is a proof that if §1, then §2 - the inverse of §3 is a function."
 msgstr ""
 
@@ -392,7 +390,7 @@ msgstr ""
 #. §1: `h1 : P`
 #. §2: `h2 : Q`
 #. §3: `h : P ∧ Q`
-#: Game.Levels.Monoid.L03_OneUnique
+#: Game.Levels.Monoid.L01_MulLeft
 msgid "§0 is a theorem that takes two proofs §1 and §2 and returns a proof §3"
 msgstr ""
 
@@ -456,7 +454,7 @@ msgstr ""
 #. §3: `P ∧ Q`
 #. §4: `P`
 #. §5: `Q`
-#: Game.Levels.Group.L01_MulInv
+#: Game.Levels.Monoid.L01_MulLeft
 msgid "The §0 tactic can be used to prove goals that are inductive types with a single constructor. For example, it can be used to prove §1 by proving §2, or to prove §3 by splitting the goal into proving §4 and §5."
 msgstr ""
 
@@ -516,13 +514,6 @@ msgstr ""
 msgid "§0 is a proof that the group §1 has an inverse for every element §2."
 msgstr ""
 
-#. §0: `mul_one`
-#. §1: `r * 1 = r`
-#. §2: `r : R`
-#: Game.Levels.Ring.L01_MulZero
-msgid "§0 is a proof that §1 for all §2 (Right Multiplicative Identity Axiom)."
-msgstr ""
-
 #. §0: `Nat.add_zero`
 #. §1: `n`
 #. §2: `n + 0 = n`
@@ -530,13 +521,6 @@ msgstr ""
 #: Game.Levels.PowMonoid.L01_PowOne
 #: Game.Levels.PowMonoid.L01_PowOne
 msgid "§0 is a proof that for any natural number §1, §2."
-msgstr ""
-
-#. §0: `add_zero`
-#. §1: `0 + r = r`
-#. §2: `r : R`
-#: Game.Levels.Ring.L01_MulZero
-msgid "§0 is a proof that §1 for all §2 (Left Additive Identity Axiom)."
 msgstr ""
 
 #. §0: `m ^ (x * y) = (m ^ x) ^ y`
@@ -558,13 +542,6 @@ msgstr ""
 msgid "For any monoid element §0, §1."
 msgstr ""
 
-#. §0: `zero_add`
-#. §1: `r + 0 = r`
-#. §2: `r : R`
-#: Game.Levels.Ring.L01_MulZero
-msgid "§0 is a proof that §1 for all §2 (Right Additive Identity Axiom)."
-msgstr ""
-
 #: Game.Levels.GroupHom.L02_HomPreservesInv
 msgid "Homomorphisms preserve inverses"
 msgstr ""
@@ -584,13 +561,6 @@ msgid "Here we'll prove that a homomorphism preserves the identity element.\n"
 "  And we can access this property by using §2 where §3.\n"
 "\n"
 "  We can also use the homomorphism as a function by using §4 directly. Example: §5."
-msgstr ""
-
-#. §0: `one_mul`
-#. §1: `1 * r = r`
-#. §2: `r : R`
-#: Game.Levels.Ring.L01_MulZero
-msgid "§0 is a proof that §1 for all §2 (Left Multiplicative Identity Axiom)."
 msgstr ""
 
 #. §0: `MyAlgebra.oneFunction G H`
@@ -631,23 +601,18 @@ msgstr ""
 msgid "§0 will close the goal if §1 is a proof of the goal."
 msgstr ""
 
-#. §0: `add_assoc`
-#. §1: `(r1 + r2) + r3 = r1 + (r2 + r3)`
-#. §2: `r1, r2, r3 : R`
-#: Game.Levels.Ring.L01_MulZero
-msgid "§0 is a proof that §1 for all §2 (Additive Associative Law)."
-msgstr ""
-
 #. §0: `x`
 #. §1: `gpow`
 #: Game.Levels.PowGroup.L04_PowPred
 msgid "You can proceed by cases on §0 (nonnegative / negative) as in the definition of §1."
 msgstr ""
 
-#. §0: `mpow_zero`
-#. §1: `m ^ 0 = 1`
-#: Game.Levels.PowMonoid.L01_PowOne
-#: Game.Levels.PowMonoid.L01_PowOne
+#: Game.Levels.PowMonoid.L07_PowCommPow
+msgid "Powers Commute with Powers"
+msgstr ""
+
+#. §0: `MyAlgebra.gpow_negSucc`
+#. §1: `g ^ (- (n + 1)) = (g ^ (n + 1))⁻¹`
 #: Game.Levels.PowGroup.L01_PowNegNat
 #: Game.Levels.PowGroup.L01_PowNegNat
 #: Game.Levels.PowGroup.L01_PowNegNat
@@ -674,10 +639,6 @@ msgstr ""
 #: Game.Levels.GroupExamples.L01_Z_mod_mZ_Id
 #: Game.Levels.GroupExamples.L01_Z_mod_mZ_Id
 msgid "§0 is a proof that §1."
-msgstr ""
-
-#: Game.Levels.PowMonoid.L07_PowCommPow
-msgid "Powers Commute with Powers"
 msgstr ""
 
 #. §0: `induction' l with fst rst`
@@ -881,7 +842,7 @@ msgstr ""
 #. §1: `P ↔ Q`
 #. §2: `P → Q`
 #. §3: `Q → P`
-#: Game.Levels.Group.L01_MulInv
+#: Game.Levels.Monoid.L01_MulLeft
 msgid "The §0 tactic is used to prove a goal of the form §1. It splits the goal into two subgoals: §2 and §3."
 msgstr ""
 
@@ -960,13 +921,6 @@ msgstr ""
 msgid "Excellent! You have generalized the exponent addition law to all integers."
 msgstr ""
 
-#. §0: `neg_add`
-#. §1: `(-r) + r = 0`
-#. §2: `r : R`
-#: Game.Levels.Ring.L01_MulZero
-msgid "§0 is a proof that §1 for all §2 (Right Additive Inverse Axiom)."
-msgstr ""
-
 #. §0: `x * (n+1) = x * n + x`
 #: Game.Levels.PowGroup.L08_PowMul
 msgid "Use the identity §0 and the addition lemma for powers."
@@ -1008,7 +962,7 @@ msgid "A monoid consists of a set M together with a binary operation (§0) we re
 msgstr ""
 
 #. §0: `use h`
-#: Game.Levels.GroupHom.L05_HomCompHom
+#: Game.Levels.Monoid.L01_MulLeft
 msgid "§0 is a tactic used to provide a proof of a type using construction."
 msgstr ""
 
@@ -1112,27 +1066,11 @@ msgstr ""
 #. §2: `m * m1 = m * m2`
 #. §3: `m * _`
 #: Game.Levels.Monoid.L01_MulLeft
-#: Game.Levels.Ring.L01_MulZero
-#: Game.Levels.Ring.L01_MulZero
 msgid "§0 is a proof that if §1, then §2 - basically §3 is a function."
-msgstr ""
-
-#. §0: `distrib_right`
-#. §1: `(r1 + r2) * r3 = (r1 * r3) + (r2 * r3)`
-#. §2: `r1, r2, r3 : R`
-#: Game.Levels.Ring.L01_MulZero
-msgid "§0 is a proof that §1 for all §2 (right Distributive Law)."
 msgstr ""
 
 #: Game
 msgid "Algebra Game"
-msgstr ""
-
-#. §0: `add_comm`
-#. §1: `r1 + r2 = r2 + r1`
-#. §2: `r1, r2 : R`
-#: Game.Levels.Ring.L01_MulZero
-msgid "§0 is a proof that §1 for all §2 (Additive Commutative Law)."
 msgstr ""
 
 #: Game.Levels.Group.L06_CombinedInv2
@@ -1159,13 +1097,6 @@ msgstr ""
 msgid "For the negative step, use §0 and your subtraction lemma §1."
 msgstr ""
 
-#. §0: `add_neg`
-#. §1: `r + (-r) = 0`
-#. §2: `r : R`
-#: Game.Levels.Ring.L01_MulZero
-msgid "§0 is a proof that §1 for all §2 (Left Additive Inverse Axiom)."
-msgstr ""
-
 #. §0: `prod_list`
 #. §1: `prod_list_inv`
 #. §2: `rw [prod_list]`
@@ -1186,8 +1117,8 @@ msgstr ""
 #. §0: `And.left`
 #. §1: `And.right`
 #. §2: `And`
-#: Game.Levels.Monoid.L03_OneUnique
-#: Game.Levels.Monoid.L03_OneUnique
+#: Game.Levels.Monoid.L01_MulLeft
+#: Game.Levels.Monoid.L01_MulLeft
 msgid "§0 and §1 are theorems that split an §2 into its left and right components"
 msgstr ""
 
@@ -1220,6 +1151,14 @@ msgstr ""
 #. §0: `y = 0`
 #: Game.Levels.PowMonoid.L04_PowMul
 msgid "Start with §0 first."
+msgstr ""
+
+#. §0: `Fin.zero_add`
+#. §1: `a`
+#. §2: `Fin n`
+#. §3: `0 + a = a`
+#: Game.Levels.GroupExamples.L01_Z_mod_mZ_Id
+msgid "§0 is a proof that for any element §1 of §2, §3."
 msgstr ""
 
 #: Game.Levels.GroupExamples.L04_Dihedral_Inv
@@ -1340,11 +1279,6 @@ msgstr ""
 msgid "Ring World"
 msgstr ""
 
-#. §0: `neg_neg`
-#: Game.Levels.Ring.L01_MulZero
-msgid "§0 is a proof that the negative of an negative is the original element."
-msgstr ""
-
 #. §0: `*`
 #. §1: `gpow`
 #. §2: ```
@@ -1453,6 +1387,13 @@ msgid "We now prove the exponent law for subtraction:\n"
 "multiplying by the inverse of §0 corresponds to subtracting §1 in the exponent."
 msgstr ""
 
+#. §0: `Int.zero_add`
+#. §1: `a`
+#. §2: `0 + a = a`
+#: Game.Levels.GroupExamples.L01_Z_mod_mZ_Id
+msgid "§0 is a proof that for any integer §1, §2."
+msgstr ""
+
 #: Game.Levels.Monoid.L01_MulLeft
 msgid "Left Multiplication"
 msgstr ""
@@ -1546,14 +1487,6 @@ msgstr ""
 msgid "§0 is the integer power of a group element §1 to the power §2."
 msgstr ""
 
-#. §0: `obtain ⟨h1, h2⟩ := h`
-#. §1: `h`
-#. §2: `h1`
-#. §3: `h2`
-#: Game.Levels.Monoid.L03_OneUnique
-msgid "§0 is a tactic that splits §1 into cases and adds them as hypotheses §2 and §3"
-msgstr ""
-
 #. §0: `-1`
 #. §1: `-(1 : ℤ)`
 #: Game.Levels.PowGroup.L02_PowNegOne
@@ -1577,6 +1510,10 @@ msgstr ""
 msgid "§0 is a proof that for any element §1, §2."
 msgstr ""
 
+#: Game.Levels.PowMonoid.L03_PowAdd
+msgid "Use the recursive definition of pow and the induction hypothesis."
+msgstr ""
+
 #. §0: `obtain ⟨x, y, z⟩ := h`
 #. §1: `h`
 #. §2: `x`
@@ -1590,10 +1527,6 @@ msgstr ""
 msgid "§0 will destructure §1 into the variables §2, §3, and §4. This is useful for when you have a hypothesis that is a tuple or a structure. You can type §5 using §6 and §7 using §8."
 msgstr ""
 
-#: Game.Levels.PowMonoid.L03_PowAdd
-msgid "Use the recursive definition of pow and the induction hypothesis."
-msgstr ""
-
 #: Game.Levels.PowGroup.L04_PowPred
 msgid "Subtracting 1 from an Integer Exponent"
 msgstr ""
@@ -1602,25 +1535,12 @@ msgstr ""
 msgid "We now prove that we can cancel right multiplication - the duel of the previous level."
 msgstr ""
 
-#. §0: `add_zero`
-#. §1: `zero_add`
-#: Game.Levels.GroupExamples.L01_Z_mod_mZ_Id
-msgid "We can use §0 and §1 from the Natural numbers."
-msgstr ""
-
 #: Game.Levels.PowGroup.L06_PowNeg
 msgid "Negating the Exponent"
 msgstr ""
 
 #: Game.Levels.PowMonoid.L02_PowSuccLeft
 msgid "Succ on the Left"
-msgstr ""
-
-#. §0: `distrib_left`
-#. §1: `r1 * (r2 + r3) = (r1 * r2) + (r1 * r3)`
-#. §2: `r1, r2, r3 : R`
-#: Game.Levels.Ring.L01_MulZero
-msgid "§0 is a proof that §1 for all §2 (left Distributive Law)."
 msgstr ""
 
 #. §0: `hom_comp_hom`
@@ -1652,7 +1572,7 @@ msgstr ""
 #. §3: `X`
 #. §4: `Y`
 #: Game.Levels.Monoid.L01_MulLeft
-#: Game.Levels.PowMonoid.L01_PowOne
+#: Game.Levels.Monoid.L01_MulLeft
 msgid "If §0 and there are several §1s in the goal, then §2 will just change the third §3 to a §4."
 msgstr ""
 
@@ -1676,7 +1596,7 @@ msgstr ""
 #. §0: `cases' h with h1 h2 ... hn`
 #. §1: `h`
 #. §2: `h1 h2 ... hn`
-#: Game.Levels.Monoid.L03_OneUnique
+#: Game.Levels.Monoid.L01_MulLeft
 msgid "§0 is a tactic that splits §1 into cases and adds them as hypotheses §2"
 msgstr ""
 
@@ -1721,11 +1641,4 @@ msgstr ""
 #. §0: `hom_trival`
 #: Game.Levels.GroupHom.L04_OneHom
 msgid "§0 is a proof that the 𝟭 function is a homomorphism."
-msgstr ""
-
-#. §0: `mul_assoc`
-#. §1: `(r1 * r2) * r3 = r1 * (r2 * r3)`
-#. §2: `r1, r2, r3 : R`
-#: Game.Levels.Ring.L01_MulZero
-msgid "§0 is a proof that §1 for all §2 (Multiplicative Associative Law)."
 msgstr ""

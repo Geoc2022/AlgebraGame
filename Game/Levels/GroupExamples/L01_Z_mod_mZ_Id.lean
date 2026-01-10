@@ -25,9 +25,12 @@ Introduction "
 -/
 TheoremDoc MyAlgebra.Z_mod_mZ_id as "Z_mod_mZ_id" in "Group Examples"
 Statement Z_mod_mZ_id (m : ℕ) (a : ZMod m) : 0 + a = a ∧ a + 0 = a := by
-  Hint "We can use `add_zero` and `zero_add` from the Natural numbers."
-  rw [add_zero, zero_add]
-  exact ⟨rfl, rfl⟩
+  -- TODO: Change the def of ZMod to make this proof more straightforward
+  cases m with
+  | zero =>
+    exact ⟨Int.zero_add a, Int.add_zero a⟩
+  | succ n =>
+    exact ⟨Fin.zero_add a, Fin.add_zero a⟩
 
 Conclusion "Congrats!"
 
@@ -35,6 +38,16 @@ Conclusion "Congrats!"
 `ZMod n` is the type of integers modulo `n`.
 -/
 DefinitionDoc ZMod as "ZMod" in "Group Examples"
+
+/--
+`Int.zero_add` is a proof that for any integer `a`, `0 + a = a`.
+-/
+TheoremDoc Int.zero_add as "Int.zero_add" in "Int"
+
+/--
+`Fin.zero_add` is a proof that for any element `a` of `Fin n`, `0 + a = a`.
+-/
+TheoremDoc Fin.zero_add as "Fin.zero_add" in "Fin"
 
 /--
 `sub_self` is a proof that for any element `a`, `a - a = 0`.
@@ -51,7 +64,7 @@ TheoremDoc sub_eq_neg_add as "sub_eq_neg_add" in "Group Examples"
 -/
 TheoremDoc sub_eq_add_neg as "sub_eq_add_neg" in "Group Examples"
 
-NewTheorem sub_self sub_eq_neg_add sub_eq_add_neg
+NewTheorem Int.zero_add Fin.zero_add sub_self sub_eq_neg_add sub_eq_add_neg
 
 /--
 `sr i` represents a reflection element in the dihedral group `D_n`, where `i` is an integer modulo `n`.

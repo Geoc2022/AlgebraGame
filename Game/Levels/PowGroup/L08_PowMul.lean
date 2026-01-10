@@ -28,12 +28,12 @@ Statement gpow_mul {G} [Group G] (g : G) (x y : ℤ) :
     -- y = n+1
     -- g^(x*(n+1)) = g^(x*n + x) = g^(x*n) * g^x
     -- (g^x)^(n+1) = (g^x)^n * g^x
-    rw [mul_add, mul_one, ←gpow_add, gpow_succ, ih]
+    rw [Int.mul_add, Int.mul_one, ←gpow_add, gpow_succ, ih]
   | pred n ih =>
     Hint "For the negative step, use `Int.mul_sub` and your subtraction lemma `gpow_sub`."
     -- y = -[n+1]
     -- x * (-(n+1)) = x * (-n) - x
     -- use `gpow_sub` and `gpow_pred` to step down
-    rw [Int.mul_sub, mul_one, ←gpow_sub, ←gpow_pred, ih]
+    rw [Int.mul_sub, Int.mul_one, ←gpow_sub, ←gpow_pred, ih]
 
 Conclusion "Excellent! You’ve proved the full multiplication law for integer exponents."

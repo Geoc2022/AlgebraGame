@@ -19,7 +19,7 @@ Statement mpow_mul {M} [Monoid M] (m : M) (x y : ℕ) :
   | zero =>
     Hint "Start with `y = 0` first."
     -- m^(x*0) = m^0 = 1, and (m^x)^0 = 1
-    simp [Nat.mul_zero, mpow_zero]
+    simp [mpow_zero]
   | succ y ih =>
     Hint "Use the `mpow_add` lemma from the previous level."
     -- m^(x*(y+1)) = m^(x*y + x) = m^(x*y) * m^x

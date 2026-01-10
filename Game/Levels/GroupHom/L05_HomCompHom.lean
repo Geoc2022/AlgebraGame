@@ -37,11 +37,4 @@ Statement hom_comp_hom {G H J} [Group G] [Group H] [Group J] (f1 : GroupHom G H)
 --   rw [← q] at r
 --   exact r
 
-/--
-`use h` is a tactic used to provide a proof of a type using construction.
--/
-TacticDoc use
-
-NewTactic use
-
 Conclusion "Congrats!"

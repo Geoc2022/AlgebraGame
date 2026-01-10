@@ -87,7 +87,32 @@ If `h : X = Y` and there are several `X`s in the goal, then `nth_rewrite 3 [h]` 
 -/
 TacticDoc nth_rewrite
 
-NewTactic rfl rw intro apply «have» obtain «calc» exact simp «repeat» nth_rewrite
+/--
+The `Iff.intro` tactic is used to prove a goal of the form `P ↔ Q`. It splits the goal into two subgoals: `P → Q` and `Q → P`.
+-/
+TacticDoc Iff.intro
+
+/--
+The `constructor` tactic can be used to prove goals that are inductive types with a single constructor. For example, it can be used to prove `P ↔ Q` by proving `P → Q`, or to prove `P ∧ Q` by splitting the goal into proving `P` and `Q`.
+-/
+TacticDoc «constructor»
+
+/--
+If `h : X = Y` and there are several `X`s in the goal, then `nth_rw 3 [h]` will just change the third `X` to a `Y`.
+-/
+TacticDoc nth_rw
+
+/--
+`cases' h with h1 h2 ... hn` is a tactic that splits `h` into cases and adds them as hypotheses `h1 h2 ... hn`
+-/
+TacticDoc cases'
+
+/--
+`use h` is a tactic used to provide a proof of a type using construction.
+-/
+TacticDoc use
+
+NewTactic rfl rw intro apply «have» obtain «calc» exact simp «repeat» nth_rewrite Iff.intro «constructor» nth_rw cases' use
 end Basic_Tactics
 
 section Monoid_Axioms
@@ -106,4 +131,18 @@ TheoremDoc one_mul as "one_mul" in "Monoid"
 TheoremDoc MyAlgebra.Semigroup.mul_assoc as "mul_assoc" in "Monoid"
 end Monoid_Axioms
 
-NewTheorem mul_one one_mul MyAlgebra.Semigroup.mul_assoc
+/--
+`And.left` and `And.right` are theorems that split an `And` into its left and right components
+-/
+TheoremDoc And.left as "And.left" in "Basic"
+/--
+`And.left` and `And.right` are theorems that split an `And` into its left and right components
+-/
+TheoremDoc And.right as "And.right" in "Basic"
+
+/--
+`And.intro` is a theorem that takes two proofs `h1 : P` and `h2 : Q` and returns a proof `h : P ∧ Q`
+-/
+TheoremDoc And.intro as "And.intro" in "Basic"
+
+NewTheorem mul_one one_mul MyAlgebra.Semigroup.mul_assoc And.left And.right And.intro

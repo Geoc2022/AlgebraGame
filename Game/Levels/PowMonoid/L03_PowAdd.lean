@@ -20,7 +20,7 @@ Statement mpow_add {M} [Monoid M] (m : M) (x y : ℕ) :
   | zero =>
     Hint "Start with `y = 0`."
     -- m^(x+0) = m^x and m^x * m^0 = m^x * 1
-    simp [Nat.add_zero, mpow_zero]
+    simp [mpow_zero]
   | succ y ih =>
     Hint "Use the recursive definition of pow and the induction hypothesis."
     -- m^(x + (y+1)) = m^(x + y + 1) = m^(x+y)*m

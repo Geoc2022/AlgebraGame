@@ -25,7 +25,7 @@ Statement gpow_pred {G} [Group G] (g : G) (x : ℤ) :
       rw [Int.ofNat_zero, gpow_zero]
       rw [one_mul, Int.zero_sub, gpow_neg_one]
     | succ x =>
-      simp [gpow, Nat.cast_add, Nat.cast_one]
+      simp [Nat.cast_add, Nat.cast_one]
       rw [gpow_succ, mul_assoc, mul_inv, mul_one]
   | Int.negSucc x =>
     rw [Int.negSucc_sub_one, gpow_negSucc, gpow_negSucc]

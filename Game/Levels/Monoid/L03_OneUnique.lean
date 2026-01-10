@@ -22,32 +22,3 @@ Statement id_unique {M} (w : M) [Monoid M] (h : ∀ (m : M), (m * w = m ∧ w * 
 
 
 Conclusion "Congrats!"
-
-/--
-`obtain ⟨h1, h2⟩ := h` is a tactic that splits `h` into cases and adds them as hypotheses `h1` and `h2`
--/
-TacticDoc obtain
-
-/--
-`cases' h with h1 h2 ... hn` is a tactic that splits `h` into cases and adds them as hypotheses `h1 h2 ... hn`
--/
-TacticDoc cases'
-
-/--
-`And.left` and `And.right` are theorems that split an `And` into its left and right components
--/
-TheoremDoc And.left as "And.left" in "Basic"
-/--
-`And.left` and `And.right` are theorems that split an `And` into its left and right components
--/
-TheoremDoc And.right as "And.right" in "Basic"
-
-/--
-`And.intro` is a theorem that takes two proofs `h1 : P` and `h2 : Q` and returns a proof `h : P ∧ Q`
--/
-TheoremDoc And.intro as "And.intro" in "Basic"
-
-
-NewTactic cases'
-
-NewTheorem And.left And.right And.intro
