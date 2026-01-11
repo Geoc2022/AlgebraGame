@@ -29,7 +29,7 @@ lemma inv_mpow (g : G) (n : ℕ) [Group G] : (g ^ n)⁻¹ = (g⁻¹) ^ n := by
     rw [← inv_id]
   | succ n ih =>
     simp
-    simp [← inv_anticomm, ih, mpow_comm_mul]
+    simp [mpow_add, ← inv_anticomm, ih, mpow_one, mpow_comm_mul]
   done
 
 @[simp]
